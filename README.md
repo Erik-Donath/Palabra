@@ -1,2 +1,2 @@
-# Erik-Donath-Palabra
+# Palabra
 Eine Vokabel lern App
