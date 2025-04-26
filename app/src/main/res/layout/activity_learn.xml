@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5DC"
     android:orientation="vertical">
 
     <!-- Top bar with navigation buttons -->
@@ -15,8 +16,10 @@
             android:id="@+id/homeBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:backgroundTint="#0F4451"
             android:contentDescription="Home"
-            android:src="@android:drawable/ic_menu_revert" />
+            android:src="@android:drawable/ic_menu_revert"
+            android:visibility="visible" />
 
         <View
             android:layout_width="0dp"
@@ -27,6 +30,7 @@
             android:id="@+id/listBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:backgroundTint="#0F4451"
             android:contentDescription="Vocabulary List"
             android:src="@android:drawable/ic_menu_sort_by_size" />
     </LinearLayout>
