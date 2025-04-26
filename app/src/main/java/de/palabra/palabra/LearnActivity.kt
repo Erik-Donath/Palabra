@@ -56,8 +56,9 @@ class LearnActivity : AppCompatActivity(), GuessFragment.OnAnswerSelectedListene
     }
 
     private fun showVocabListFragment() {
+        val vocabListFragment = VocabListFragment.newInstance(sampleData.map { "${it.word} -> ${it.solutions[it.correctIndex]}" })
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, VocabListFragment())
+            .replace(R.id.fragmentContainer, vocabListFragment)
             .commit()
     }
 }
