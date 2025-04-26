@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5DC"
     android:orientation="vertical"
     android:padding="16dp">
+
 
     <!-- Result text (Correct/Wrong) -->
     <TextView
         android:id="@+id/resultText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Correct!" />
+        android:gravity="center"
+        android:text="Correct!"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <!-- Original word -->
     <TextView
         android:id="@+id/wordText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="22sp"
         android:layout_marginBottom="16dp"
-        android:text="Word" />
+        android:gravity="center"
+        android:text="Word"
+        android:textSize="22sp" />
 
     <!-- Selected answer -->
     <TextView
         android:id="@+id/answerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="22sp"
         android:layout_marginBottom="32dp"
-        android:text="Solution 1" />
+        android:gravity="center"
+        android:text="Solution 1"
+        android:textSize="22sp" />
 
     <!-- Navigation buttons -->
     <LinearLayout
@@ -47,16 +51,18 @@
             android:id="@+id/backBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#0F4451"
             android:text="Back" />
 
         <Button
             android:id="@+id/nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#0F4451"
             android:text="Next" />
     </LinearLayout>
 </LinearLayout>
