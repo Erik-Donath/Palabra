@@ -34,6 +34,10 @@ class LearnActivity : AppCompatActivity(), GuessFragment.OnAnswerSelectedListene
             finish()
         }
 
+        // Hide Vocab List by default
+        isVocabListVisible = false;
+        vocabListOverlay.visibility = View.GONE
+
         listBtn.setOnClickListener {
             isVocabListVisible = !isVocabListVisible
             vocabListOverlay.visibility = if (isVocabListVisible) View.VISIBLE else View.GONE
