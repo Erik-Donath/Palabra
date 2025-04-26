@@ -1,6 +1,8 @@
 package de.palabra.palabra
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,5 +23,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         AppDatabase.create(this, CoroutineScope(SupervisorJob()))
+
+        val lektionBtn = findViewById<Button>(R.id.lektionBtn)
+        val smartBtn = findViewById<Button>(R.id.smartBtn)
+        val allBtn = findViewById<Button>(R.id.allBtn)
+
+        lektionBtn.setOnClickListener {
+            println("Pressed Lektion Btn")
+            startActivity(Intent(this, LearnActivity::class.java))
+            finish()
+        }
+        smartBtn.setOnClickListener {
+            println("Pressed Smart Btn")
+            startActivity(Intent(this, LearnActivity::class.java))
+            finish()
+        }
+        allBtn.setOnClickListener {
+            println("Pressed All Btn")
+            startActivity(Intent(this, LearnActivity::class.java))
+            finish()
+        }
     }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Kopfzeile mit Home- und Listen-Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Home"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/listBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            android:contentDescription="Vokabelliste"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+    <!-- Vokabel-Wort -->
+    <TextView
+        android:id="@+id/guess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wort"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Antwortmöglichkeiten -->
+    <Button
+        android:id="@+id/solution1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lösung 1"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/solution2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lösung 2"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/solution3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lösung 3" />
+
+</LinearLayout>
