@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Word to translate -->
+    <TextView
+        android:id="@+id/wordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Word" />
+
+    <!-- Answer options -->
+    <Button
+        android:id="@+id/solution1Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Solution 1" />
+
+    <Button
+        android:id="@+id/solution2Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Solution 2" />
+
+    <Button
+        android:id="@+id/solution3Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Solution 3" />
+
+</LinearLayout>

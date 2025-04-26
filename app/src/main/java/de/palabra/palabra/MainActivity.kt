@@ -24,8 +24,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Create Database
         AppDatabase.create(this, CoroutineScope(SupervisorJob()))
 
+        // Setup Activity
         val lektionBtn = findViewById<Button>(R.id.lektionBtn)
         val smartBtn = findViewById<Button>(R.id.smartBtn)
         val allBtn = findViewById<Button>(R.id.allBtn)
