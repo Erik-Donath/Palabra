@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="verdigris">#FF2DA9B0</color>
+    <color name="sage">#FFC2C1A5</color>
+    <color name="midnight_green">#FF0F4451</color>
+
+    <color name="background">@color/white</color>
 </resources>
