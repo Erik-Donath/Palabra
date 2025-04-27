@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:elevation="10dp"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="24dp">
 
         <ImageButton
             android:id="@+id/homeBtn"
@@ -24,7 +24,7 @@
 
         <View
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="50dp"
             android:layout_weight="1" />
 
         <ImageButton
@@ -37,12 +37,15 @@
     </LinearLayout>
 
     <!-- Fragment container - will hold all the swappable fragments -->
+
+    <!-- Overlay für die Vocab List -->
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="483dp"
+        android:layout_alignParentBottom="true"
+        android:padding="24dp"/>
 
-    <!-- Overlay für die Vocab List -->
     <LinearLayout
         android:id="@+id/vocabListOverlay"
         android:layout_width="match_parent"

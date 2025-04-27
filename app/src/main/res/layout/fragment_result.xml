@@ -4,8 +4,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_marginBottom="80dp"
+    android:padding="24dp"
+    android:layout_constraintTop_toBottomOf="parent">
+
 
 
     <!-- Result text (Correct/Wrong) -->
@@ -17,7 +21,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Correct!"
-        android:textSize="28sp"
+        android:textSize="70sp"
         android:textStyle="bold" />
 
     <!-- Original word -->
@@ -64,4 +68,5 @@
             android:backgroundTint="@color/midnight_green"
             android:text="Next" />
     </LinearLayout>
+
 </LinearLayout>
