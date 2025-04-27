@@ -7,8 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:layout_marginBottom="80dp"
-    android:padding="24dp"
-    android:layout_constraintTop_toBottomOf="parent">
+    android:padding="24dp">
 
 
 
