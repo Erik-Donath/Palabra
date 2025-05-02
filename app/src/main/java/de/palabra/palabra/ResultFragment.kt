@@ -44,15 +44,7 @@ class ResultFragment : Fragment() {
         answerText.text = selectedWord
         answerText.setTextColor(if (isCorrect) Color.GREEN else Color.RED)
 
-        // Set up navigation buttons
-        val backBtn = view.findViewById<Button>(R.id.backBtn)
         val nextBtn = view.findViewById<Button>(R.id.nextBtn)
-
-        backBtn.setOnClickListener {
-            // TODO: Remove Back Button
-            println("Back Button not implemented")
-        }
-
         nextBtn.setOnClickListener {
             (activity as? LearnActivity)?.next()
         }
