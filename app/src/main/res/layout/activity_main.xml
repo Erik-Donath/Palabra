@@ -10,11 +10,11 @@
     tools:context=".ui.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/settingsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/midnight_green"
-        android:text="Button"
+        android:text="Settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"

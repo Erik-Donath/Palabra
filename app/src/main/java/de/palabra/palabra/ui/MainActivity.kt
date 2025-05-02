@@ -28,22 +28,21 @@ class MainActivity : AppCompatActivity() {
         // Create Database
         AppDatabase.create(this, CoroutineScope(SupervisorJob()))
 
-        // Setup Activity
-        val lektionBtn = findViewById<Button>(R.id.lektionBtn)
-        val smartBtn = findViewById<Button>(R.id.smartBtn)
-        val allBtn = findViewById<Button>(R.id.allBtn)
+        findViewById<Button>(R.id.settingsBtn).setOnClickListener {
+            println("TODO: Settings")
+        }
 
-        lektionBtn.setOnClickListener {
+        findViewById<Button>(R.id.lektionBtn).setOnClickListener {
             println("Pressed Lektion Btn")
             startActivity(Intent(this, LearnActivity::class.java))
             finish()
         }
-        smartBtn.setOnClickListener {
+        findViewById<Button>(R.id.smartBtn).setOnClickListener {
             println("Pressed Smart Btn")
             startActivity(Intent(this, LearnActivity::class.java))
             finish()
         }
-        allBtn.setOnClickListener {
+        findViewById<Button>(R.id.allBtn).setOnClickListener {
             println("Pressed All Btn")
             startActivity(Intent(this, LearnActivity::class.java))
             finish()
