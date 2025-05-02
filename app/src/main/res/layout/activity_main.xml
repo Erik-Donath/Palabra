@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <Button
         android:id="@+id/button"
@@ -54,7 +54,7 @@
             android:layout_marginBottom="24dp"
             android:backgroundTint="@color/midnight_green"
             android:text="Lextions" />
-        
+
         <Button
             android:id="@+id/smartBtn"
             android:layout_width="match_parent"

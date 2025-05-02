@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Palabra"
         tools:targetApi="31">
         <activity
-            android:name=".LearnActivity"
+            android:name=".ui.LearnActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Palabra">
             <intent-filter>
