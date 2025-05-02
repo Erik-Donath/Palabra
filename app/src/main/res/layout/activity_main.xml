@@ -34,8 +34,8 @@
         <ImageView
             android:id="@+id/imageStar"
             android:layout_width="match_parent"
-            android:layout_height="144dp"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/pockal" />
 
         <TextView
             android:id="@+id/score"
