@@ -32,7 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
                             AppDatabase::class.java,
                             "vocablulary"
                         )
-                            .fallbackToDestructiveMigration()
+                            .fallbackToDestructiveMigration(false)
                             .addCallback(AppDatabaseCallback(scope))
                             .build()
 
@@ -51,7 +51,6 @@ abstract class AppDatabase : RoomDatabase() {
         private class AppDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {
-            // Callback-Implementierung wie gehabt
         }
     }
 }

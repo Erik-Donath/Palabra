@@ -10,8 +10,6 @@
     android:background="@color/background"
     android:padding="24dp">
 
-
-
     <!-- Result text (Correct/Wrong) -->
     <TextView
         android:id="@+id/resultText"

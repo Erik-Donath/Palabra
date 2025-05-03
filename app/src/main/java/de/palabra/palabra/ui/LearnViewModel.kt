@@ -9,7 +9,7 @@ class LearnViewModel : ViewModel() {
     val sampleData = listOf(
         GuessData("Hund", listOf("dog", "cat", "mouse"), 0),
         GuessData("Katze", listOf("bird", "cat", "horse"), 1),
-        GuessData("Haus", listOf("car", "tree", "house"), 2)
+        GuessData("Haus", listOf("car", "tree", "house"), 2),
     )
 
     private val _currentGuess = MutableLiveData<GuessData>()
@@ -25,14 +25,24 @@ class LearnViewModel : ViewModel() {
     }
 
     fun loadNext() {
-        _currentGuess.value = sampleData[currentIndex]
-        currentIndex = (currentIndex + 1) % sampleData.size
+        if (currentIndex >= sampleData.size) {
+            _navigationEvent.value = NavigationEvent.Finish // oder ShowEnd
+        } else {
+            _currentGuess.value = sampleData[currentIndex]
+            currentIndex++
+        }
     }
 
+
     fun handleAnswer(selectedIndex: Int, isCorrect: Boolean) {
+        val currentData = sampleData.getOrNull(currentIndex - 1) ?: run {
+            _navigationEvent.value = NavigationEvent.Finish
+            return
+        }
+
         _navigationEvent.value = NavigationEvent.ShowResult(
-            correctWord = sampleData[currentIndex - 1].word,
-            selectedWord = sampleData[currentIndex - 1].solutions[selectedIndex],
+            correctWord = currentData.word,
+            selectedWord = currentData.solutions.getOrNull(selectedIndex) ?: "",
             isCorrect = isCorrect
         )
     }
@@ -49,5 +59,6 @@ class LearnViewModel : ViewModel() {
         ) : NavigationEvent()
 
         object ShowNextQuestion : NavigationEvent()
+        object Finish : NavigationEvent()
     }
 }

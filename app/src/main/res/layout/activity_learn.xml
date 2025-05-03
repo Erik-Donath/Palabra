@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:orientation="vertical">
+    android:background="@color/background">
 
     <!-- Top bar with navigation buttons -->
     <LinearLayout
@@ -36,37 +36,11 @@
             android:src="@android:drawable/ic_menu_sort_by_size" />
     </LinearLayout>
 
-    <!-- Fragment container - will hold all the swappable fragments -->
-
-    <!-- Overlay für die Vocab List -->
+    <!-- Fragment Container -->
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="24dp"/>
 
-    <LinearLayout
-        android:id="@+id/vocabListOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="Vocabulary List"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/vocabListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
 </FrameLayout>

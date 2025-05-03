@@ -35,17 +35,14 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.lektionBtn).setOnClickListener {
             println("Pressed Lektion Btn")
             startActivity(Intent(this, LearnActivity::class.java))
-            finish()
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
             println("Pressed Smart Btn")
             startActivity(Intent(this, LearnActivity::class.java))
-            finish()
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
             println("Pressed All Btn")
             startActivity(Intent(this, LearnActivity::class.java))
-            finish()
         }
     }
 }

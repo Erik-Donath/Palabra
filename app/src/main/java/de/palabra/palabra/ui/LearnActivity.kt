@@ -1,82 +1,54 @@
 package de.palabra.palabra.ui
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.ListView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import de.palabra.palabra.GuessData
 import de.palabra.palabra.R
 
-class LearnActivity : AppCompatActivity(), GuessFragment.OnAnswerSelectedListener {
-
-    private val sampleData = listOf(
-        GuessData("Hund", listOf("dog", "cat", "mouse"), 0),
-        GuessData("Katze", listOf("bird", "cat", "horse"), 1),
-        GuessData("Haus", listOf("car", "tree", "house"), 2)
-    )
-
-    private var currentGuessData: GuessData? = null
-    private var currentIndex = 0
-    private var isVocabListVisible: Boolean = false
+class LearnActivity : AppCompatActivity() {
+    private val viewModel: LearnViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn)
 
-        // Setup navigation buttons
-        val homeBtn = findViewById<ImageButton>(R.id.homeBtn)
-        val listBtn = findViewById<ImageButton>(R.id.listBtn)
-        val vocabListOverlay = findViewById<LinearLayout>(R.id.vocabListOverlay)
-        val vocabListView = findViewById<ListView>(R.id.vocabListView)
-
-        homeBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        findViewById<ImageButton>(R.id.homeBtn).setOnClickListener { finish() }
+        findViewById<ImageButton>(R.id.listBtn).setOnClickListener {
+            VocabListDialogFragment().show(supportFragmentManager, "vocabList")
         }
 
-        isVocabListVisible = false
-        vocabListOverlay.visibility = View.GONE
-
-        listBtn.setOnClickListener {
-            isVocabListVisible = !isVocabListVisible
-            vocabListOverlay.visibility = if (isVocabListVisible) View.VISIBLE else View.GONE
+        viewModel.currentGuess.observe(this) { guess ->
+            showGuessFragment(guess)
         }
 
-        val vocabList = sampleData.map { "${it.word} -> ${it.solutions[it.correctIndex]}" }
-        vocabListView.adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            vocabList
-        )
-
-        // Show the initial GuessFragment
-        if (savedInstanceState == null) {
-            next()
+        viewModel.navigationEvent.observe(this) { event ->
+            if (isFinishing || isDestroyed) return@observe
+            when (event) {
+                is LearnViewModel.NavigationEvent.ShowResult -> showResultFragment(event)
+                is LearnViewModel.NavigationEvent.ShowNextQuestion -> viewModel.loadNext()
+                is LearnViewModel.NavigationEvent.Finish -> finish()
+            }
         }
     }
 
-    fun next() {
-        currentGuessData = sampleData[currentIndex]
-        currentIndex = (currentIndex + 1) % sampleData.size
-
-        val guessFragment = GuessFragment.newInstance(currentGuessData!!)
+    private fun showGuessFragment(guess: GuessData) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, guessFragment)
+            .replace(R.id.fragmentContainer, GuessFragment.newInstance(guess))
+            //.addToBackStack(null)
             .commit()
     }
 
-    override fun onAnswerSelected(selectedIndex: Int, isCorrect: Boolean) {
-        val resultFragment = ResultFragment.newInstance(
-            currentGuessData!!.word,
-            currentGuessData!!.solutions[selectedIndex],
-            isCorrect
-        )
+    private fun showResultFragment(event: LearnViewModel.NavigationEvent.ShowResult) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, resultFragment)
+            .replace(R.id.fragmentContainer, ResultFragment.newInstance(
+                event.correctWord,
+                event.selectedWord,
+                event.isCorrect
+            ))
+            //.addToBackStack("result")
             .commit()
     }
 }
