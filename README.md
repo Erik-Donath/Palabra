@@ -2,7 +2,7 @@
 Eine Vokabel lern App
 
 # Fachkonzeptklassen und Objektdiagramme
-![docs/Objekt-_und_Klassendiagramme](docs/Objekt-_und_Klassendiagramme)
+![docs/Objekt-_und_Klassendiagramme.jpg](docs/Objekt-_und_Klassendiagramme.jpg)
 
 # Showcase
 ## Home
