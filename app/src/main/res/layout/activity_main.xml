@@ -27,49 +27,69 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="24dp"
         app:layout_constraintTop_toBottomOf="parent"
         tools:layout_editor_absoluteX="29dp">
 
         <ImageView
             android:id="@+id/imageStar"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:srcCompat="@drawable/pockal" />
+            android:layout_width="330dp"
+            android:layout_height="248dp"
+            app:srcCompat="@drawable/jetzt_aber"
+            android:layout_marginBottom="0dp" />
 
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:strokeColor="@color/sage"
+            app:strokeWidth="3dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp"
-            android:text="Score"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:backgroundTint="@android:color/white">
 
-        <Button
-            android:id="@+id/lektionBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/midnight_green"
-            android:text="Lextions" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="298dp"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <Button
-            android:id="@+id/smartBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/midnight_green"
-            android:text="Smart" />
+                <TextView
+                    android:id="@+id/score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="32dp"
+                    android:text="Score"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/allBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/midnight_green"
-            android:text="Alle" />
+                <Button
+                    android:id="@+id/lektionBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/midnight_green"
+                    android:text="Lextions" />
 
+                <Button
+                    android:id="@+id/smartBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTint="@color/midnight_green"
+                    android:text="Smart" />
+
+                <Button
+                    android:id="@+id/allBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/midnight_green"
+                    android:text="Alle" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
