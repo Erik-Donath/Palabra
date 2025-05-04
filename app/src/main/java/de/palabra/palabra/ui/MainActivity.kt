@@ -29,19 +29,15 @@ class MainActivity : AppCompatActivity() {
         AppDatabase.create(this, CoroutineScope(SupervisorJob()))
 
         findViewById<Button>(R.id.settingsBtn).setOnClickListener {
-            println("TODO: Settings")
+            startActivity(Intent(this, LicensActivity::class.java))
         }
-
         findViewById<Button>(R.id.lektionBtn).setOnClickListener {
-            println("Pressed Lektion Btn")
             startActivity(Intent(this, LearnActivity::class.java))
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
-            println("Pressed Smart Btn")
             startActivity(Intent(this, LearnActivity::class.java))
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
-            println("Pressed All Btn")
             startActivity(Intent(this, LearnActivity::class.java))
         }
     }
