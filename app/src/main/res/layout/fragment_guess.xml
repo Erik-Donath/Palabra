@@ -20,13 +20,13 @@
         android:text="Word" />
 
     <!-- Answer options -->
-    <Button
-        android:id="@+id/solution1Btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/midnight_green"
-        android:text="Solution 1" />
+        <Button
+            android:id="@+id/solution1Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/midnight_green"
+            android:text="Solution 1" />
 
     <Button
         android:id="@+id/solution2Btn"
