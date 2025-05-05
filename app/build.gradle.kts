@@ -4,6 +4,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     kotlin("kapt")
+    // id("com.google.devtools.ksp")
 }
 
 android {
@@ -56,18 +57,23 @@ dependencies {
     // androidTestImplementation(libs.androidx.junit)
     // androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlin.reflect)
 
-    implementation("androidx.room:room-runtime:2.7.1")
-    implementation("androidx.room:room-ktx:2.7.1")
-    kapt("androidx.room:room-compiler:2.7.1")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-    implementation ("androidx.activity:activity-ktx:1.8.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
 }
+
 
 kapt {
     correctErrorTypes = true
 }
+

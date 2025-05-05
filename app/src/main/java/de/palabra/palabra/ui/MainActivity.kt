@@ -9,8 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import de.palabra.palabra.R
 import de.palabra.palabra.db.AppDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Create Database
-        AppDatabase.create(this, CoroutineScope(SupervisorJob()))
+        AppDatabase.initialize(applicationContext)
 
         findViewById<Button>(R.id.settingsBtn).setOnClickListener {
             startActivity(Intent(this, LicensActivity::class.java))

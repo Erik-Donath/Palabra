@@ -13,16 +13,19 @@
         android:theme="@style/Theme.Palabra"
         tools:targetApi="31">
         <activity
-            android:name=".ui.LicensActivity"
-            android:launchMode="singleTop"
+            android:name=".ui.LektionActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.LicensActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.LearnActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
-            android:launchMode="singleTop"
             android:exported="true"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.Palabra">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

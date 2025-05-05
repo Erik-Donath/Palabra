@@ -1,56 +1,49 @@
 package de.palabra.palabra.db
 
 import android.content.Context
+import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.CoroutineScope
+import androidx.room.TypeConverters
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Lektion::class, Vocab::class], version = 1)
+@Database(
+    entities = [Lektion::class, Vocab::class],
+    version = 1,
+    exportSchema = true
+)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun lektionDao(): LektionDao
     abstract fun vocabDao(): VocabDao
-
-    suspend fun getLektions(): List<Long> {
-        return lektionDao().getLektionsIds()
-    }
-
-    suspend fun getVocabs(): List<Long> {
-        return vocabDao().getVocabsIds()
-    }
 
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun create(context: Context, scope: CoroutineScope) {
-            if (INSTANCE == null) {
-                synchronized(this) {
-                    if (INSTANCE == null) {
-                        val instance = Room.databaseBuilder(
-                            context.applicationContext,
-                            AppDatabase::class.java,
-                            "vocablulary"
-                        )
-                            .fallbackToDestructiveMigration(false)
-                            .addCallback(AppDatabaseCallback(scope))
-                            .build()
-
-                        INSTANCE = instance
-                    }
-                }
+        fun initialize(context: Context) {
+            synchronized(this) {
+                INSTANCE = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "palabra.db"
+                )
+                    .fallbackToDestructiveMigration()
+                    .addCallback(object : Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            // Hier Testdaten einfügen wenn gewünscht
+                        }
+                    })
+                    .build()
             }
         }
 
         fun getDatabase(): AppDatabase {
             return INSTANCE ?: throw IllegalStateException(
-                "AppDatabase muss zuerst mit create() initialisiert werden."
+                "Database muss zuerst mit initialize() initialisiert werden"
             )
-        }
-
-        private class AppDatabaseCallback(
-            private val scope: CoroutineScope
-        ) : RoomDatabase.Callback() {
         }
     }
 }

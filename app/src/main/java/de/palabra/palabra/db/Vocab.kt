@@ -1,13 +1,6 @@
 package de.palabra.palabra.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.Insert
-import androidx.room.PrimaryKey
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Entity(
@@ -16,34 +9,27 @@ import kotlinx.coroutines.flow.Flow
         ForeignKey(
             entity = Lektion::class,
             parentColumns = ["id"],
-            childColumns = ["lektion"],
+            childColumns = ["lektionId"],
             onDelete = ForeignKey.CASCADE
         )
-    ]
+    ],
+    indices = [Index(value = ["lektionId"])]
 )
 data class Vocab(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0, // PK
-    val lektion: Long, // FK
+    val id: Long = 0,
+    val lektionId: Long,
     val fromWord: String,
     val toWord: String
 )
 
+
 @Dao
 interface VocabDao {
-    @Query("SELECT id FROM vocab")
-    suspend fun getVocabsIds(): List<Long>
-
-    @Query("SELECT * FROM vocab WHERE lektion = :lektionId")
+    @Query("SELECT * FROM vocab WHERE lektionId = :lektionId ORDER BY fromWord ASC")
     fun getVocabsByLektion(lektionId: Long): Flow<List<Vocab>>
 
-    @Query("SELECT * FROM vocab")
-    fun getAllVocabs(): Flow<List<Vocab>>
-
-    @Query("SELECT * FROM vocab WHERE id = :id")
-    suspend fun getVocabById(id: Long): Vocab?
-
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVocab(vocab: Vocab): Long
 
     @Update
@@ -52,3 +38,4 @@ interface VocabDao {
     @Delete
     suspend fun deleteVocab(vocab: Vocab)
 }
+
