@@ -8,4 +8,5 @@
     <color name="midnight_green">#FF0F4451</color>
 
     <color name="background">@color/white</color>
+    <color name="red">#FFAF0000</color>
 </resources>

@@ -21,4 +21,11 @@
         android:text="house"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:gravity="end"/>
+
+    <ImageButton
+        android:id="@+id/deleteVocabButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_delete" />
 </LinearLayout>

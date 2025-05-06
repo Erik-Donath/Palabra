@@ -3,10 +3,12 @@ package de.palabra.palabra.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import de.palabra.palabra.R
 
 data class Lektion(
@@ -43,6 +45,8 @@ class LektionAdapter(
         val playButton: ImageButton = view.findViewById(R.id.playButton)
         val body: View = view.findViewById(R.id.bodyLayout)
         val vocabRecycler: RecyclerView = view.findViewById(R.id.vocabRecyclerView)
+        val addVocabButton: Button = view.findViewById(R.id.addVocabButton)
+        val deleteLektionButton: Button = view.findViewById(R.id.deleteLektionButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,21 +59,28 @@ class LektionAdapter(
         val lektion = lektionen[position]
         val isExpanded = expandedStates[lektion.lektionID] ?: false
 
-        with(holder) {
-            title.text = lektion.titel
-            langs.text = "${lektion.fromLang} → ${lektion.toLang}"
-            body.visibility = if (isExpanded) View.VISIBLE else View.GONE
+        holder.title.text = lektion.titel
+        holder.langs.text = "${lektion.fromLang} → ${lektion.toLang}"
+        holder.body.visibility = if (isExpanded) View.VISIBLE else View.GONE
 
-            // Vokabelliste nur bei geöffneter Lektion laden
-            if (isExpanded) {
-                vocabRecycler.apply {
-                    layoutManager = LinearLayoutManager(context)
-                    adapter = VocabAdapter(getVocab(lektion.lektionID))
+        holder.header.setOnClickListener { onExpandToggle(lektion.lektionID) }
+        holder.playButton.setOnClickListener { onPlayClick(lektion.lektionID) }
+
+        if (isExpanded) {
+            holder.vocabRecycler.layoutManager = LinearLayoutManager(holder.itemView.context)
+            holder.vocabRecycler.adapter = VocabAdapter(getVocab(lektion.lektionID) as MutableList<Vocab>)
+
+            holder.addVocabButton.setOnClickListener {
+                (holder.itemView.context as? LektionActivity)?.showNewVocabDialog(lektion.lektionID) {
+                    holder.vocabRecycler.adapter = VocabAdapter(getVocab(lektion.lektionID) as MutableList<Vocab>)
                 }
             }
 
-            header.setOnClickListener { onExpandToggle(lektion.lektionID) }
-            playButton.setOnClickListener { onPlayClick(lektion.lektionID) }
+            holder.deleteLektionButton.setOnClickListener {
+                (holder.itemView.context as? LektionActivity)?.deleteLektion(lektion.lektionID)
+                lektionen = lektionen.toMutableList().apply { removeAt(position) }
+                notifyItemRemoved(position)
+            }
         }
     }
 
@@ -77,12 +88,13 @@ class LektionAdapter(
 }
 
 class VocabAdapter(
-    private val vocabs: List<Vocab>
+    private var vocabs: MutableList<Vocab>
 ) : RecyclerView.Adapter<VocabAdapter.VocabViewHolder>() {
 
     inner class VocabViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val fromWord: TextView = view.findViewById(R.id.fromWord)
         val toWord: TextView = view.findViewById(R.id.toWord)
+        val deleteButton: ImageButton = view.findViewById(R.id.deleteVocabButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabViewHolder {
@@ -95,6 +107,12 @@ class VocabAdapter(
         val vocab = vocabs[position]
         holder.fromWord.text = vocab.fromWord
         holder.toWord.text = vocab.toWord
+
+        holder.deleteButton.setOnClickListener {
+            (holder.itemView.context as? LektionActivity)?.deleteVocab(vocabs[position].vocabID)
+            vocabs = vocabs.toMutableList().apply { removeAt(position) }
+            notifyItemRemoved(position)
+        }
     }
 
     override fun getItemCount() = vocabs.size

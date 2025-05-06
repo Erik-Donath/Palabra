@@ -58,5 +58,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"/>
+
+        <Button
+            android:id="@+id/deleteLektionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lektion löschen"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/red"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/addVocabButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neue Vokabel"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 </LinearLayout>

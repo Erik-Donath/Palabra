@@ -54,6 +54,13 @@ class LektionActivity : AppCompatActivity() {
         }.show()
     }
 
+    fun showNewVocabDialog(lektionId: Long, onVocabCreated: () -> Unit) {
+        NewVocabDialog(this, lektionId) {
+            createNewVocab(lektionId, it.first, it.second)
+            onVocabCreated()
+        }.show()
+    }
+
     // BEHALTE DIE METHODENSIGNATUREN WIE SIE SIND
     private fun getVocabFromLektionID(lektionID: Long): List<Vocab> {
         // DEBUG-IMPLEMENTIERUNG
@@ -84,5 +91,17 @@ class LektionActivity : AppCompatActivity() {
 
     private fun startLektion(lektionID: Long) {
         // DEINE IMPLEMENTIERUNG
+    }
+
+    private fun createNewVocab(lektionID: Long, fromWord: String, toWord: String) {
+        // Hier kommt deine Datenbank-Logik
+    }
+
+    fun deleteLektion(lektionID: Long) {
+        // Deine Implementierung
+    }
+
+    fun deleteVocab(vocabID: Long) {
+        // Deine Implementierung
     }
 }
