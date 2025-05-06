@@ -40,12 +40,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Neue Lektion"
+            android:backgroundTint="@color/midnight_green"
             android:layout_marginEnd="8dp"/>
 
         <Button
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/midnight_green"
             android:text="Zurück"/>
 
     </LinearLayout>
