@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LicensActivity::class.java))
         }
         findViewById<Button>(R.id.lektionBtn).setOnClickListener {
-            startActivity(Intent(this, LearnActivity::class.java))
+            startActivity(Intent(this, LektionActivity::class.java))
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
             startActivity(Intent(this, LearnActivity::class.java))
