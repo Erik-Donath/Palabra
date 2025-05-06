@@ -1,43 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="12dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:orientation="vertical"
+    android:background="?android:selectableItemBackground"
+    android:padding="4dp">
 
+    <!-- Header: Anklickbar zum Expandieren -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/lektionTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="2dp"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            android:text="Lektionstitel"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/lektionLangs"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="DE → EN"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="Lektion starten"
+            android:background="@null"/>
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/playButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="Lektion starten"
-        android:src="@android:drawable/ic_media_play"
-        android:background="?android:attr/selectableItemBackgroundBorderless"/>
+    <!-- Expandierbarer Body -->
+    <LinearLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#10CCCCCC"
+        android:padding="8dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vocabRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
 </LinearLayout>
