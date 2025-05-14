@@ -54,6 +54,7 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/midnight_green"
             android:text="Abbrechen" />
 
         <Button
@@ -61,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Speichern"
+            android:backgroundTint="@color/midnight_green"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 </LinearLayout>
