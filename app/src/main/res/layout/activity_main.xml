@@ -37,8 +37,8 @@
             android:id="@+id/imageStar"
             android:layout_width="330dp"
             android:layout_height="248dp"
-            app:srcCompat="@drawable/jetzt_aber"
-            android:layout_marginBottom="0dp" />
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/pockal" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
