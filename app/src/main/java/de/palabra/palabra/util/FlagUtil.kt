@@ -1,14 +1,18 @@
 package de.palabra.palabra.util
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 
-object FlagUtils {
-    fun getFlagResId(context: Context, countryCode: String): Int {
-        // Android-Flags uses 2-letter lowercase country codes, e.g., flag_de, flag_us, flag_fr
-        return context.resources.getIdentifier(
-            "flag_${countryCode.lowercase()}",
-            "drawable",
-            context.packageName
-        )
+object FlagsUtil {
+    @SuppressLint("DiscouragedApi")
+    fun getFlagResId(context: Context, code: String): Int {
+        val resName = "flag_${code.lowercase()}"
+        val resId = context.resources.getIdentifier(resName, "drawable", context.packageName)
+        if (resId == 0) {
+            Log.w("FlagsUtils", "Flag for code '$code' not found, using fallback.")
+            return android.R.color.darker_gray // fallback color
+        }
+        return resId
     }
 }

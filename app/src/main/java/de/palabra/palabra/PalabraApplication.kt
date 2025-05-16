@@ -31,7 +31,7 @@ class PalabraApplication : Application() {
                     Lektion(
                         title = "Test Lektion",
                         fromLangCode = "de",
-                        toLangCode = "en",
+                        toLangCode = "us",
                         description = "Dies ist eine Testlektion"
                     )
                 ).toInt()
