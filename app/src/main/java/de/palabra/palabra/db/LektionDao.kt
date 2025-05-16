@@ -3,15 +3,6 @@ package de.palabra.palabra.db
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
-data class LektionWithVocabs(
-    @Embedded val lektion: Lektion,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "lektionId"
-    )
-    val vocabs: List<Vocab>
-)
-
 @Dao
 interface LektionDao {
     @Transaction
