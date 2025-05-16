@@ -20,11 +20,10 @@
         SOFTWARE.\n
     </string>
 
-    <string name="search_lektion" translatable="false">Lektion suchen...</string>
-    <string name="add_lektion" translatable="false">Lektion hinzufügen</string>
-    <string name="play_lektion" translatable="false">Lektion abspielen</string>
-    <string name="to_language_flag" translatable="false">Zielflagge</string>
-    <string name="add_vocab" translatable="false">Vokabel hinzufügen</string>
-    <string name="delete_lektion" translatable="false">Lektion löschen</string>
-    <string name="delete_vocab" translatable="false">Vokabel löschen</string>
+    <string name="add_lektion" translatable="false">Add Lektion</string>
+    <string name="add_vocab" translatable="false">Add Vocab</string>
+    <string name="delete_lektion" translatable="false">Delete Lektion</string>
+    <string name="delete_vocab" translatable="false">Delete Vocab</string>
+    <string name="play" translatable="false">Play</string>
+    <string name="flag" translatable="false">Flag</string>
 </resources>

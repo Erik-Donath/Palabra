@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/wordText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Haus"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+        <TextView
+            android:id="@+id/toWordText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="house"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+        <ImageButton
+            android:id="@+id/deleteVocabBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/red_button"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/delete_vocab"
+            android:tint="@color/white"/>
+    </LinearLayout>
+</layout>

@@ -10,14 +10,6 @@
     <color name="background">@color/white</color>
     <color name="red">#FFAF0000</color>
 
-    <color name="primaryLight">#1976D2</color>
-    <color name="onPrimaryLight">#FFFFFF</color>
-    <color name="secondaryLight">#E3F2FD</color>
-    <color name="surfaceLight">#FFFFFF</color>
-    <color name="surfaceVariantLight">#F5F5F5</color>
-    <color name="backgroundLight">#F8F9FB</color>
-    <color name="textPrimary">#212121</color>
-    <color name="textSecondary">#757575</color>
-    <color name="errorLight">#D32F2F</color>
-    <color name="onErrorLight">#FFFFFF</color>
+    <color name="primaryColor">#1976D2</color>
+    <color name="green">#43A047</color>
 </resources>
