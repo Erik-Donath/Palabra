@@ -28,7 +28,7 @@
                     android:id="@+id/flagImage"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_flag_placeholder"
+                    android:src="@drawable/flag__unknown"
                     android:scaleType="centerCrop"
                     android:background="@drawable/rounded_square"
                     android:contentDescription="@string/flag"

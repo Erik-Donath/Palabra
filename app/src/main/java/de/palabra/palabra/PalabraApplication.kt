@@ -27,7 +27,7 @@ class PalabraApplication : Application() {
         CoroutineScope(Dispatchers.IO).launch {
             val lektions = repository.getAllLektionenWithVocabs().first()
             if (lektions.isEmpty()) {
-                val lektionId = repository.insertLektion(
+                val lektionId1 = repository.insertLektion(
                     Lektion(
                         title = "Test Lektion",
                         fromLangCode = "de",
@@ -36,14 +36,32 @@ class PalabraApplication : Application() {
                     )
                 ).toInt()
 
-                val vocabs = listOf(
-                    Vocab(word = "Hund", toWord = "dog", lektionId = lektionId),
-                    Vocab(word = "Katze", toWord = "cat", lektionId = lektionId),
-                    Vocab(word = "Haus", toWord = "house", lektionId = lektionId),
-                    Vocab(word = "Baum", toWord = "tree", lektionId = lektionId),
-                    Vocab(word = "Buch", toWord = "book", lektionId = lektionId)
+                val vocabs1 = listOf(
+                    Vocab(word = "Hund", toWord = "dog", lektionId = lektionId1),
+                    Vocab(word = "Katze", toWord = "cat", lektionId = lektionId1),
+                    Vocab(word = "Haus", toWord = "house", lektionId = lektionId1),
+                    Vocab(word = "Baum", toWord = "tree", lektionId = lektionId1),
+                    Vocab(word = "Buch", toWord = "book", lektionId = lektionId1)
                 )
-                vocabs.forEach { repository.insertVocab(it) }
+                vocabs1.forEach { repository.insertVocab(it) }
+
+                val lektionId2 = repository.insertLektion(
+                    Lektion(
+                        title = "Woyzeck",
+                        fromLangCode = "de",
+                        toLangCode = "eu",
+                        description = "Aber wenn mir die Natur kommt?"
+                    )
+                ).toInt()
+
+                val vocabs2 = listOf(
+                    Vocab(word = "Marie", toWord = "Marie", lektionId = lektionId2),
+                    Vocab(word = "Woyzeck", toWord = "Woyzeck", lektionId = lektionId2),
+                    Vocab(word = "Hauptman", toWord = "Hauptman", lektionId = lektionId2),
+                    Vocab(word = "Tambormajor", toWord = "Tambormajor", lektionId = lektionId2),
+                    Vocab(word = "Doktor", toWord = "Artzt", lektionId = lektionId2)
+                )
+                vocabs2.forEach { repository.insertVocab(it) }
             }
         }
     }
