@@ -29,10 +29,10 @@ class PalabraApplication : Application() {
             if (lektions.isEmpty()) {
                 val lektionId1 = repository.insertLektion(
                     Lektion(
-                        title = "Test Lektion",
+                        title = "Englisch Lektion Tierarten",
                         fromLangCode = "de",
-                        toLangCode = "us",
-                        description = "Dies ist eine Testlektion"
+                        toLangCode = "en",
+                        description = "Lerne verschiedene Tierarten kennen."
                     )
                 ).toInt()
 
@@ -49,7 +49,7 @@ class PalabraApplication : Application() {
                     Lektion(
                         title = "Woyzeck",
                         fromLangCode = "de",
-                        toLangCode = "eu",
+                        toLangCode = "de",
                         description = "Aber wenn mir die Natur kommt?"
                     )
                 ).toInt()

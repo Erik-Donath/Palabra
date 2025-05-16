@@ -1,18 +1,12 @@
 package de.palabra.palabra.ui
 
 import android.os.Bundle
-import android.view.inputmethod.EditorInfo
-import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.palabra.palabra.PalabraApplication
-import de.palabra.palabra.R
 import de.palabra.palabra.databinding.ActivityLektionBinding
-import de.palabra.palabra.db.Lektion
-import de.palabra.palabra.db.LektionWithVocabs
-import de.palabra.palabra.db.Vocab
 
 class LektionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLektionBinding

@@ -1,19 +1,25 @@
 package de.palabra.palabra.util
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.util.Log
 import de.palabra.palabra.R
 
-object FlagsUtil {
-    @SuppressLint("DiscouragedApi")
-    fun getFlagResId(context: Context, code: String): Int {
-        val resName = "flag_${code.lowercase()}"
-        val resId = context.resources.getIdentifier(resName, "drawable", context.packageName)
-        if (resId == 0) {
-            Log.w("FlagsUtils", "Flag for code '$code' not found, using fallback.")
-            return R.drawable.flag__unknown
+object FlagUtil {
+    val langCodes = listOf("en", "de", "fr", "es", "it", "ru", "zh", "pt", "nl", "pl", "sv")
+
+    fun getFlagResForLang(langCode: String): Int {
+        return when (langCode) {
+            "en" -> R.drawable.flag_gb // UK flag, or use flag_us for US
+            "de" -> R.drawable.flag_de
+            "fr" -> R.drawable.flag_fr
+            "es" -> R.drawable.flag_es
+            "it" -> R.drawable.flag_it
+            "ru" -> R.drawable.flag_ru
+            "zh" -> R.drawable.flag_cn
+            "pt" -> R.drawable.flag_pt
+            "nl" -> R.drawable.flag_nl
+            "pl" -> R.drawable.flag_pl
+            "sv" -> R.drawable.flag_se
+            // ...add more as needed
+            else -> R.drawable.flag__unknown // fallback (add a generic flag if you want)
         }
-        return resId
     }
 }

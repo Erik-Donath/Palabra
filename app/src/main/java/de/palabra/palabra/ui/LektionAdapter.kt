@@ -1,20 +1,17 @@
 package de.palabra.palabra.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import de.palabra.palabra.R
 import de.palabra.palabra.databinding.ItemLektionBinding
 import de.palabra.palabra.databinding.ItemVocabBinding
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.LektionWithVocabs
 import de.palabra.palabra.db.Vocab
-import de.palabra.palabra.util.FlagsUtil
+import de.palabra.palabra.util.FlagUtil
 
 class LektionAdapter(
     private val onLektionDelete: (Lektion) -> Unit,
@@ -46,7 +43,7 @@ class LektionAdapter(
             binding.languagesText.text = "${lektion.fromLangCode} → ${lektion.toLangCode}"
             binding.descriptionText.text = lektion.description
 
-            binding.flagImage.setImageResource(FlagsUtil.getFlagResId(binding.root.context, lektion.toLangCode))
+            binding.flagImage.setImageResource(FlagUtil.getFlagResForLang(lektion.toLangCode))
 
             // Play button (right)
             binding.playBtn.setOnClickListener {
