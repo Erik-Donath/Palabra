@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Create Database
-        AppDatabase.initialize(applicationContext)
-
         findViewById<Button>(R.id.settingsBtn).setOnClickListener {
             startActivity(Intent(this, LicensActivity::class.java))
         }

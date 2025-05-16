@@ -1,33 +1,13 @@
 package de.palabra.palabra.db
 
-import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(
-    tableName = "lektion",
-    indices = [Index(value = ["name"], unique = true)]
-)
+@Entity
 data class Lektion(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val name: String,
-    val fromLang: String,
-    val toLang: String
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val title: String,
+    val fromLangCode: String, // e.g. "de"
+    val toLangCode: String,   // e.g. "en"
+    val description: String
 )
-
-
-@Dao
-interface LektionDao {
-    @Query("SELECT * FROM lektion ORDER BY name ASC")
-    fun getAllLektions(): Flow<List<Lektion>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLektion(lektion: Lektion): Long
-
-    @Update
-    suspend fun updateLektion(lektion: Lektion)
-
-    @Delete
-    suspend fun deleteLektion(lektion: Lektion)
-}
-

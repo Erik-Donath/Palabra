@@ -1,41 +1,22 @@
 package de.palabra.palabra.db
 
-import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
+import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "vocab",
-    foreignKeys = [
-        ForeignKey(
-            entity = Lektion::class,
-            parentColumns = ["id"],
-            childColumns = ["lektionId"],
-            onDelete = ForeignKey.CASCADE
-        )
-    ],
-    indices = [Index(value = ["lektionId"])]
+    foreignKeys = [ForeignKey(
+        entity = Lektion::class,
+        parentColumns = ["id"],
+        childColumns = ["lektionId"],
+        onDelete = ForeignKey.CASCADE
+    )],
+    indices = [Index("lektionId")]
 )
 data class Vocab(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val lektionId: Long,
-    val fromWord: String,
-    val toWord: String
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val word: String,
+    val toWord: String,
+    val lektionId: Int
 )
-
-
-@Dao
-interface VocabDao {
-    @Query("SELECT * FROM vocab WHERE lektionId = :lektionId ORDER BY fromWord ASC")
-    fun getVocabsByLektion(lektionId: Long): Flow<List<Vocab>>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertVocab(vocab: Vocab): Long
-
-    @Update
-    suspend fun updateVocab(vocab: Vocab)
-
-    @Delete
-    suspend fun deleteVocab(vocab: Vocab)
-}
-
