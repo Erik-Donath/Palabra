@@ -16,7 +16,8 @@ import de.palabra.palabra.util.FlagUtil
 class LektionAdapter(
     private val onLektionDelete: (Lektion) -> Unit,
     private val onVocabDelete: (Vocab) -> Unit,
-    private val onLektionExpand: (Int) -> Unit
+    private val onLektionExpand: (Int) -> Unit,
+    private val onAddVocab: (Int) -> Unit
 ) : ListAdapter<LektionWithVocabs, LektionAdapter.LektionViewHolder>(DIFF) {
 
     companion object {
@@ -36,7 +37,8 @@ class LektionAdapter(
     }
 
     inner class LektionViewHolder(private val binding: ItemLektionBinding) : RecyclerView.ViewHolder(binding.root) {
-        private var expanded = false
+        private var expanded: Boolean = false
+        private var lektionId: Int = 0
         fun bind(item: LektionWithVocabs) {
             val lektion = item.lektion
             binding.titleText.text = lektion.title
@@ -47,11 +49,10 @@ class LektionAdapter(
 
             // Play button (right)
             binding.playBtn.setOnClickListener {
-                // TODO: Play action
             }
             // Add Vocab button
             binding.addVocabBtn.setOnClickListener {
-                // TODO: Add vocab dialog
+                onAddVocab(lektion.id)
             }
             // Delete Lektion button
             binding.deleteLektionBtn.setOnClickListener {

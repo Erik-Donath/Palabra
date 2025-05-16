@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.databinding.ActivityLektionBinding
+import de.palabra.palabra.db.Lektion
+import de.palabra.palabra.db.Vocab
+import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLektionBinding
@@ -23,7 +27,8 @@ class LektionActivity : AppCompatActivity() {
         adapter = LektionAdapter(
             onLektionDelete = { lektion -> viewModel.deleteLektion(lektion) },
             onVocabDelete = { vocab -> viewModel.deleteVocab(vocab) },
-            onLektionExpand = { lektionId -> viewModel.toggleExpansion(lektionId) }
+            onLektionExpand = { lektionId -> viewModel.toggleExpansion(lektionId) },
+            onAddVocab = { lektionId -> showAddVocabDialog(lektionId) }
         )
         binding.lektionRecycler.layoutManager = LinearLayoutManager(this)
         binding.lektionRecycler.adapter = adapter
@@ -39,13 +44,43 @@ class LektionActivity : AppCompatActivity() {
             }
         })
 
-        // Plus button click (right of SearchView): Not implemented yet
         binding.addLektionBtn.setOnClickListener {
-            // TODO: Add Lektion dialog
+            showAddLektionDialog()
         }
 
         viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
             adapter.submitList(lektionen)
         }
+    }
+
+    private fun showAddLektionDialog() {
+        AddLektionDialogFragment { title, fromLang, toLang, description ->
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                repo.insertLektion(
+                    Lektion(
+                        title = title,
+                        fromLangCode = fromLang,
+                        toLangCode = toLang,
+                        description = description
+                    )
+                )
+            }
+        }.show(supportFragmentManager, "AddLektionDialog")
+    }
+
+    private fun showAddVocabDialog(lektionId: Int) {
+        AddVocabDialogFragment { fromWord, toWord ->
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                repo.insertVocab(
+                    Vocab(
+                        lektionId = lektionId,
+                        word = fromWord,
+                        toWord = toWord
+                    )
+                )
+            }
+        }.show(supportFragmentManager, "AddVocabDialog")
     }
 }
