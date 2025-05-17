@@ -9,12 +9,24 @@
         android:orientation="vertical"
         android:padding="12dp">
 
+        <!-- Top row: Home/Back Button + SearchView + Add Button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginBottom="8dp">
+
+            <!-- Home/Back Button -->
+            <ImageButton
+                android:id="@+id/homeBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="@string/home"
+                android:src="@drawable/ic_home_24"
+                android:visibility="visible"
+                app:tint="@color/white" />
 
             <SearchView
                 android:id="@+id/searchView"

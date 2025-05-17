@@ -44,6 +44,10 @@ class LektionActivity : AppCompatActivity() {
             }
         })
 
+        binding.homeBtn.setOnClickListener {
+            finish()
+        }
+
         binding.addLektionBtn.setOnClickListener {
             showAddLektionDialog()
         }
