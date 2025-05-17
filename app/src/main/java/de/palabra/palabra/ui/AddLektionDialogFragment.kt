@@ -8,7 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import de.palabra.palabra.R
-import de.palabra.palabra.util.FlagUtil
+import de.palabra.palabra.util.LanguageUtil
 
 class AddLektionDialogFragment(
     private val onAddLektion: (title: String, fromLang: String, toLang: String, description: String) -> Unit
@@ -29,8 +29,8 @@ class AddLektionDialogFragment(
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
         val btnAdd = view.findViewById<Button>(R.id.btnAdd)
 
-        langCodes = FlagUtil.langCodes
-        langNames = FlagUtil.langCodes
+        langCodes = LanguageUtil.languageCodes
+        langNames = LanguageUtil.languageNames
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, langNames)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -40,12 +40,12 @@ class AddLektionDialogFragment(
         spinnerToLang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
                 val code = langCodes[pos]
-                flagToLang.setImageResource(FlagUtil.getFlagResForLang(code))
+                flagToLang.setImageResource(LanguageUtil.getFlagFromCode(code))
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
         // Set initial flag
-        flagToLang.setImageResource(FlagUtil.getFlagResForLang(langCodes[spinnerToLang.selectedItemPosition]))
+        flagToLang.setImageResource(LanguageUtil.getFlagFromCode(langCodes[spinnerToLang.selectedItemPosition]))
 
         btnCancel.setOnClickListener { dismiss() }
         btnAdd.setOnClickListener {

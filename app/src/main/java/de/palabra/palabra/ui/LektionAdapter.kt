@@ -11,7 +11,7 @@ import de.palabra.palabra.databinding.ItemVocabBinding
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.LektionWithVocabs
 import de.palabra.palabra.db.Vocab
-import de.palabra.palabra.util.FlagUtil
+import de.palabra.palabra.util.LanguageUtil
 
 class LektionAdapter(
     private val onLektionDelete: (Lektion) -> Unit,
@@ -45,7 +45,7 @@ class LektionAdapter(
             binding.languagesText.text = "${lektion.fromLangCode} → ${lektion.toLangCode}"
             binding.descriptionText.text = lektion.description
 
-            binding.flagImage.setImageResource(FlagUtil.getFlagResForLang(lektion.toLangCode))
+            binding.flagImage.setImageResource(LanguageUtil.getFlagFromCode(lektion.toLangCode))
 
             // Play button (right)
             binding.playBtn.setOnClickListener {

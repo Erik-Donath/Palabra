@@ -1,18 +1,16 @@
 [versions]
 agp = "8.10.0"
 fragmentKtx = "1.8.6"
-googleMaterial = "1.7.0"
+googleMaterial = "1.12.0"
 hiltAndroid = "2.48"
 kotlin = "2.1.20"
 coreKtx = "1.16.0"
 appcompat = "1.7.0"
 kotlinStdlib = "2.1.20"
-lifecycleViewmodelKtx = "2.8.7"
-material = "1.12.0"
+lifecycleViewmodelKtx = "2.9.0"
 constraintlayout = "2.2.1"
-materialVersion = "1.6.0"
-navigationFragmentKtx = "2.8.9"
-navigationUiKtx = "2.8.9"
+navigationFragmentKtx = "2.9.0"
+navigationUiKtx = "2.9.0"
 activity = "1.10.1"
 roomRuntime = "2.7.1"
 
@@ -29,15 +27,12 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltA
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinStdlib" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinStdlib" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-material-v160 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 material-v170 = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
