@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/midnight_green"
-        android:text="Settings"
+        android:text="@string/main_license"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
@@ -38,6 +38,7 @@
             android:layout_width="330dp"
             android:layout_height="248dp"
             android:layout_marginBottom="0dp"
+            android:contentDescription="@string/main_star"
             app:srcCompat="@drawable/pocal" />
 
         <com.google.android.material.card.MaterialCardView
@@ -63,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="32dp"
-                    android:text="Score"
+                    android:text="@string/score"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -73,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:backgroundTint="@color/midnight_green"
-                    android:text="Lextions" />
+                    android:text="@string/main_lextions" />
 
                 <Button
                     android:id="@+id/smartBtn"
@@ -81,15 +82,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:backgroundTint="@color/midnight_green"
-                    android:text="Smart" />
+                    android:text="@string/main_smart" />
 
                 <Button
                     android:id="@+id/allBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/midnight_green"
-                    android:text="Alle" />
+                    android:text="@string/main_all" />
             </LinearLayout>
+
         </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

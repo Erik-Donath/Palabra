@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,7 +18,8 @@
         android:textColor="@color/midnight_green"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="120dp"
-        android:text="Word" />
+        android:text="Word"
+        tools:ignore="HardcodedText" />
 
     <!-- Answer options -->
     <Button
@@ -27,7 +29,8 @@
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/midnight_green"
         android:textColor="@color/white"
-        android:text="Solution 1" />
+        android:text="Solution 1"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/option2"
@@ -36,7 +39,8 @@
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/midnight_green"
         android:textColor="@color/white"
-        android:text="Solution 2" />
+        android:text="Solution 2"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/option3"
@@ -44,5 +48,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/midnight_green"
         android:textColor="@color/white"
-        android:text="Solution 3" />
+        android:text="Solution 3"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

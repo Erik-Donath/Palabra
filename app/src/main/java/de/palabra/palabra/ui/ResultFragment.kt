@@ -24,9 +24,9 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val correct = args.pickedIndex == args.correctIndex
-        binding.resultText.text = if (correct) getString(R.string.correct) else getString(R.string.wrong)
+        binding.resultText.text = if (correct) getString(R.string.learn_correct) else getString(R.string.learn_wrong)
         binding.wordText.text = args.word
-        binding.pickedOptionText.text = getString(R.string.your_choice, args.solutions?.get(args.pickedIndex) ?: "")
+        binding.pickedOptionText.text = getString(R.string.learn_your_choice, args.solutions?.get(args.pickedIndex) ?: "")
 
         binding.nextButton.setOnClickListener {
             findNavController().navigate(ResultFragmentDirections.actionResultToGuess())

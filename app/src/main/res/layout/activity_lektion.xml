@@ -43,7 +43,7 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/rounded_button"
                 android:src="@drawable/ic_add"
-                android:contentDescription="@string/add_lektion"
+                android:contentDescription="@string/lektion_add_lektion"
                 app:tint="@color/white" />
         </LinearLayout>
 

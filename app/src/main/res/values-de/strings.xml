@@ -1,0 +1,34 @@
+<resources>
+    <!-- App !-->
+    <string name="app_name">Palabra</string>
+
+    <!-- General!-->
+    <string name="home">Start</string>
+    <string name="back">Zurücj</string>
+    <string name="score">Score</string>
+    <string name="close">Schließen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="next">Nächste</string>
+
+    <!-- Main Activity !-->
+    <string name="main_license">Lizens</string>
+    <string name="main_lextions">Lektionen</string>
+    <string name="main_smart">Schlaues Lernen</string>
+    <string name="main_all">Alle Vocabeln</string>
+    <string name="main_star">Stern</string>
+
+    <!-- Lektion Activity !-->
+    <string name="lektion_add_lektion">Neue Lektion</string>
+    <string name="lektion_add_vocab">Neue Vokabel</string>
+    <string name="lektion_delete_lektion">Lektion löschen</string>
+    <string name="lektion_delete_vocab">Vokabel löschen</string>
+    <string name="lektion_play">Start</string>
+    <string name="lektion_flag">Flage</string>
+
+    <!-- Learn Activity !-->
+    <string name="learn_correct">Richtig!</string>
+    <string name="learn_wrong">Falsch!</string>
+    <string name="learn_your_choice">Deine Auswahl: %1$s</string>
+    <string name="learn_vocab_list">Vokabelliste</string>
+</resources>

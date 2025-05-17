@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -20,7 +21,8 @@
         android:text="Correct!"
         android:textColor="@color/midnight_green"
         android:textSize="70sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <!-- Original word -->
     <TextView
@@ -30,7 +32,8 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Word"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:ignore="HardcodedText" />
 
     <!-- Selected answer -->
     <TextView
@@ -40,7 +43,8 @@
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="Solution 1"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:ignore="HardcodedText" />
 
     <!-- Navigation buttons -->
     <LinearLayout
@@ -56,6 +60,6 @@
             android:layout_weight="1"
             android:backgroundTint="@color/midnight_green"
             android:textColor="@color/white"
-            android:text="Next" />
+            android:text="@string/next" />
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/dialog_rounded_bg"
     android:padding="24dp"
@@ -8,7 +9,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Add Lektion"
+        android:text="@string/lektion_add_lektion"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
@@ -19,7 +20,8 @@
         android:id="@+id/editTitle"
         android:hint="Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:id="@+id/spinnerFromLang"
@@ -31,7 +33,7 @@
         android:id="@+id/spinnerToLang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="12dp"/>
 
     <ImageView
         android:id="@+id/flagToLang"
@@ -45,7 +47,8 @@
         android:hint="Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -56,14 +59,14 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:text="Cancel"
+            android:text="@string/cancel"
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btnAdd"
-            android:text="Add"
+            android:text="@string/add"
             android:layout_marginStart="16dp"
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"

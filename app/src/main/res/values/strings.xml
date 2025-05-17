@@ -1,17 +1,35 @@
 <resources>
-    <string name="app_name" translatable="false">Palabra</string>
-    <string name="action_settings" translatable="false">Settings</string>
-    <string name="licens" translatable="false">MIT License\n
-\nCopyright © 2025 Erik Donath\n
-\nPermission is hereby granted, free of charge, to any person obtaining a copy
+    <!-- App !-->
+    <string name="app_name">Palabra</string>
+
+    <!-- General!-->
+    <string name="home">Home</string>
+    <string name="back">Back</string>
+    <string name="score">Score</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="next">Next</string>
+
+    <!-- Main Activity !-->
+    <string name="main_license">License</string>
+    <string name="main_lextions">Lektions</string>
+    <string name="main_smart">Smart</string>
+    <string name="main_all">All</string>
+    <string name="main_star">Star</string>
+
+    <!-- License Activity !-->
+    <string name="license_text" translatable="false">MIT License\n
+        \nCopyright © 2025 Erik Donath\n
+        \nPermission is hereby granted, free of charge, to any person obtaining a copy
         of this software and associated documentation files (the "Software"), to deal
         in the Software without restriction, including without limitation the rights
         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
         copies of the Software, and to permit persons to whom the Software is
         furnished to do so, subject to the following conditions:\n
-\nThe above copyright notice and this permission notice shall be included in all
+        \nThe above copyright notice and this permission notice shall be included in all
         copies or substantial portions of the Software.\n
-\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        \nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -20,19 +38,17 @@
         SOFTWARE.\n
     </string>
 
-    <string name="add_lektion" translatable="false">Add Lektion</string>
-    <string name="add_vocab" translatable="false">Add Vocab</string>
-    <string name="delete_lektion" translatable="false">Delete Lektion</string>
-    <string name="delete_vocab" translatable="false">Delete Vocab</string>
-    <string name="play" translatable="false">Play</string>
-    <string name="flag" translatable="false">Flag</string>
+    <!-- Lektion Activity !-->
+    <string name="lektion_add_lektion">Add Lektion</string>
+    <string name="lektion_add_vocab">Add Vocab</string>
+    <string name="lektion_delete_lektion">Delete Lektion</string>
+    <string name="lektion_delete_vocab">Delete Vocab</string>
+    <string name="lektion_play">Play</string>
+    <string name="lektion_flag">Flag</string>
 
-    <string name="correct" translatable="false">Richtig!</string>
-    <string name="wrong" translatable="false">Falsch!</string>
-    <string name="your_choice" translatable="false">Deine Auswahl: %1$s</string>
-    <string name="next" translatable="false">Nächste</string>
-    <string name="vocab_list" translatable="false">Vokabelliste</string>
-    <string name="no_more_vocabs" translatable="false">Keine weiteren Vokabeln!</string>
-    <string name="home" translatable="false">Home</string>
-    <string name="close" translatable="false">Schließen</string>
+    <!-- Learn Activity !-->
+    <string name="learn_correct">Correct!</string>
+    <string name="learn_wrong">Wrong!</string>
+    <string name="learn_your_choice">Your Choise: %1$s</string>
+    <string name="learn_vocab_list">Vocab list</string>
 </resources>
