@@ -11,35 +11,34 @@ object LanguageUtil {
 
     val supportedLanguages = listOf(
         Language("Englisch (GB)",               "en",    R.drawable.flag_gb), // en-GB
-        Language("Englisch (US)",               "en-US", R.drawable.flag_us),
         Language("Spanish",                     "es",    R.drawable.flag_es),
         Language("French",                      "fr",    R.drawable.flag_fr),
         Language("German",                      "de",    R.drawable.flag_de),
         Language("Italian",                     "it",    R.drawable.flag_it),
-        Language("Russian",                     "ru",    R.drawable.flag_ru),
-        Language("Chinese",                     "zh",    R.drawable.flag_cn),
         Language("Japanese",                    "ja",    R.drawable.flag_jp),
+        Language("Chinese",                     "zh",    R.drawable.flag_cn),
+        Language("Russian",                     "ru",    R.drawable.flag_ru),
+        Language("Portuguese (Brazilian)",      "pt-BR", R.drawable.flag_br),
+        Language("Portuguese (Portugal)",       "pt",    R.drawable.flag_pt), // pt-PT
         Language("Korean",                      "ko",    R.drawable.flag_kr),
         Language("Turkish",                     "tr",    R.drawable.flag_tr),
         Language("Dutch",                       "nl",    R.drawable.flag_nl),
+        Language("Polish",                      "pl",    R.drawable.flag_pl),
         Language("Swedish",                     "sv",    R.drawable.flag_se),
+        Language("Greek",                       "el",    R.drawable.flag_gr),
+        Language("Czech",                       "cs",    R.drawable.flag_cz),
+        Language("Hungarian",                   "hu",    R.drawable.flag_hu),
+        Language("Romanian",                    "ro",    R.drawable.flag_ro),
         Language("Danish",                      "da",    R.drawable.flag_dk),
         Language("Norwegian",                   "no",    R.drawable.flag_no),
         Language("Finnish",                     "fi",    R.drawable.flag_fi),
-        Language("Portuguese (Portugal)",       "pt",    R.drawable.flag_pt), // pt-PT
-        Language("Portuguese (Brazilian)",      "pt-BR", R.drawable.flag_br),
-        Language("Polish",                      "pl",    R.drawable.flag_pl),
-        Language("Greek",                       "el",    R.drawable.flag_gr),
-        Language("Hungarian",                   "hu",    R.drawable.flag_hu),
-        Language("Czech",                       "cs",    R.drawable.flag_cz),
-        Language("Romanian",                    "ro",    R.drawable.flag_ro),
-        Language("Thai",                        "th",    R.drawable.flag_th),
         Language("Arabic (Saudi Arabia)",       "ar",    R.drawable.flag_sa), // ar-SA
         Language("Arabic (Egypt)",              "ar-EG", R.drawable.flag_eg),
         Language("Hindi",                       "hi",    R.drawable.flag_in),
         Language("Hebrew",                      "he",    R.drawable.flag_il),
         Language("Indonesian",                  "id",    R.drawable.flag_id),
-        Language("Vietnamese",                  "vi",    R.drawable.flag_vn)
+        Language("Vietnamese",                  "vi",    R.drawable.flag_vn),
+        Language("Englisch (US)",               "en-US", R.drawable.flag_us)
     )
 
     val languageNames = supportedLanguages.map { it.name }
