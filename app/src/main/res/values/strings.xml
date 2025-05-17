@@ -26,6 +26,13 @@
     <string name="delete_vocab" translatable="false">Delete Vocab</string>
     <string name="play" translatable="false">Play</string>
     <string name="flag" translatable="false">Flag</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="correct" translatable="false">Richtig!</string>
+    <string name="wrong" translatable="false">Falsch!</string>
+    <string name="your_choice" translatable="false">Deine Auswahl: %1$s</string>
+    <string name="next" translatable="false">Nächste</string>
+    <string name="vocab_list" translatable="false">Vokabelliste</string>
+    <string name="no_more_vocabs" translatable="false">Keine weiteren Vokabeln!</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="close" translatable="false">Schließen</string>
 </resources>

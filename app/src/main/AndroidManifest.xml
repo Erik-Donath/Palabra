@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Palabra">
         <activity
+            android:name=".ui.LearnActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LektionActivity"
             android:exported="false"
             android:theme="@style/Theme.Palabra" />
@@ -19,9 +22,6 @@
             android:name=".ui.LicensActivity"
             android:exported="false"
             android:launchMode="singleTop" />
-        <activity
-            android:name=".ui.LearnActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

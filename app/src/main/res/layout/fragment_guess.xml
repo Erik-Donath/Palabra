@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="24dp">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <!-- Word to translate -->
     <TextView
@@ -15,33 +14,35 @@
         android:gravity="center"
         android:textSize="70sp"
         android:textStyle="bold"
+        android:textColor="@color/midnight_green"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="120dp"
         android:text="Word" />
 
     <!-- Answer options -->
-        <Button
-            android:id="@+id/solution1Btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/midnight_green"
-            android:text="Solution 1" />
-
     <Button
-        android:id="@+id/solution2Btn"
+        android:id="@+id/option1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/midnight_green"
+        android:textColor="@color/white"
+        android:text="Solution 1" />
+
+    <Button
+        android:id="@+id/option2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/midnight_green"
+        android:textColor="@color/white"
         android:text="Solution 2" />
 
     <Button
-        android:id="@+id/solution3Btn"
+        android:id="@+id/option3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/midnight_green"
+        android:textColor="@color/white"
         android:text="Solution 3" />
-
-    </LinearLayout>
-</layout>
+</LinearLayout>

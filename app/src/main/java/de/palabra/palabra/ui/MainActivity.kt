@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import de.palabra.palabra.DebugProvider
 import de.palabra.palabra.R
 import de.palabra.palabra.db.AppDatabase
 
@@ -30,10 +31,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LektionActivity::class.java))
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
-            startActivity(Intent(this, LearnActivity::class.java))
+            val provider = DebugProvider()
+            val intent = Intent(this, LearnActivity::class.java)
+            intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+            startActivity(intent)
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
-            startActivity(Intent(this, LearnActivity::class.java))
+            val provider = DebugProvider()
+            val intent = Intent(this, LearnActivity::class.java)
+            intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+            startActivity(intent)
         }
     }
 }

@@ -1,54 +1,40 @@
 package de.palabra.palabra.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import de.palabra.palabra.R
 import de.palabra.palabra.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: LearnViewModel by activityViewModels()
+    private val args: ResultFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val correct = args.pickedIndex == args.correctIndex
+        binding.resultText.text = if (correct) getString(R.string.correct) else getString(R.string.wrong)
+        binding.wordText.text = args.word
+        binding.pickedOptionText.text = getString(R.string.your_choice, args.solutions?.get(args.pickedIndex) ?: "")
 
-        arguments?.let {
-            binding.resultText.text = if (it.getBoolean("isCorrect")) "Richtig!" else "Falsch!"
-            binding.resultText.setTextColor(if (it.getBoolean("isCorrect")) Color.GREEN else Color.RED)
-            binding.wordText.text = it.getString("correctWord")
-            binding.answerText.text = it.getString("selectedWord")
+        binding.nextButton.setOnClickListener {
+            findNavController().navigate(ResultFragmentDirections.actionResultToGuess())
         }
-
-        binding.nextBtn.setOnClickListener { viewModel.triggerNext() }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        fun newInstance(correctWord: String, selectedWord: String, isCorrect: Boolean) =
-            ResultFragment().apply {
-                arguments = Bundle().apply {
-                    putString("correctWord", correctWord)
-                    putString("selectedWord", selectedWord)
-                    putBoolean("isCorrect", isCorrect)
-                }
-            }
     }
 }

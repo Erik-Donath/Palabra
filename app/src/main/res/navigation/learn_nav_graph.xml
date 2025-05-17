@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/learn_nav_graph"
+    app:startDestination="@id/guessFragment">
+
+    <fragment
+        android:id="@+id/guessFragment"
+        android:name="de.palabra.palabra.ui.GuessFragment"
+        android:label="GuessFragment" >
+        <action
+            android:id="@+id/action_guess_to_result"
+            app:destination="@id/resultFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="de.palabra.palabra.ui.ResultFragment"
+        android:label="ResultFragment">
+        <argument
+            android:name="word"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="solutions"
+            app:argType="string[]"
+            android:defaultValue="@null"
+            app:nullable="true" />
+        <argument
+            android:name="correctIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="pickedIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_result_to_guess"
+            app:destination="@id/guessFragment"/>
+    </fragment>
+</navigation>

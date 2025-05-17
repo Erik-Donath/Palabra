@@ -1,23 +1,43 @@
 package de.palabra.palabra
 
-interface IProvider {
-    fun next(): GuessData?
-    fun all(): List<String>
+import de.palabra.palabra.db.Vocab
+import java.io.Serializable
+
+data class GuessData(
+    val word: String,
+    val solutions: List<String>,
+    val correctIndex: Int
+) : Serializable
+
+interface IProvider : Serializable {
+    fun getGuessList(): List<GuessData>
+    fun getNextGuess(): GuessData?
+    fun reset()
 }
 
-class DebugProvider: IProvider {
-    private val sampleData = listOf(
-        GuessData("Hund", listOf("dog", "cat", "mouse"), 0),
-        GuessData("Katze", listOf("bird", "cat", "horse"), 1),
-        GuessData("Haus", listOf("car", "tree", "house"), 2)
+class DebugProvider : IProvider {
+    private val guesses = listOf(
+        GuessData(
+            word = "Hund",
+            solutions = listOf("Dog", "Cat", "Mouse"),
+            correctIndex = 0
+        ),
+        GuessData(
+            word = "Katze",
+            solutions = listOf("Dog", "Cat", "Horse"),
+            correctIndex = 1
+        ),
+        GuessData(
+            word = "Vogel",
+            solutions = listOf("Bird", "Fish", "Snake"),
+            correctIndex = 0
+        )
     )
-    private var index: Int = 0
+    private var index = 0
 
-    override fun next(): GuessData? {
-        return sampleData.getOrNull(index++)
-    }
+    override fun getGuessList() = guesses
 
-    override fun all(): List<String> {
-        return sampleData.map { "${it.word} -> ${it.solutions[it.correctIndex]}" }
-    }
+    override fun getNextGuess(): GuessData? = guesses.getOrNull(index++)
+
+    override fun reset() { index = 0 }
 }

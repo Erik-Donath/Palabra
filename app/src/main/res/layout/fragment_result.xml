@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -19,6 +18,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Correct!"
+        android:textColor="@color/midnight_green"
         android:textSize="70sp"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
 
     <!-- Selected answer -->
     <TextView
-        android:id="@+id/answerText"
+        android:id="@+id/pickedOptionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -49,13 +49,13 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/nextBtn"
+            android:id="@+id/nextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:backgroundTint="@color/midnight_green"
+            android:textColor="@color/white"
             android:text="Next" />
     </LinearLayout>
-
 </LinearLayout>
