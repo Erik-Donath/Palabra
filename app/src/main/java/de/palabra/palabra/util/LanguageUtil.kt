@@ -6,11 +6,11 @@ object LanguageUtil {
     data class Language(
         val name: String,
         val code: String,
-        val flagRes: Int // Replace with String if you use filenames
+        val flagRes: Int
     )
 
     val supportedLanguages = listOf(
-        Language("Englisch (GB)",               "en",    R.drawable.flag_gb), // en-GB
+        Language("English (GB)",               "en",    R.drawable.flag_gb), // en-GB
         Language("Spanish",                     "es",    R.drawable.flag_es),
         Language("French",                      "fr",    R.drawable.flag_fr),
         Language("German",                      "de",    R.drawable.flag_de),
@@ -38,7 +38,7 @@ object LanguageUtil {
         Language("Hebrew",                      "he",    R.drawable.flag_il),
         Language("Indonesian",                  "id",    R.drawable.flag_id),
         Language("Vietnamese",                  "vi",    R.drawable.flag_vn),
-        Language("Englisch (US)",               "en-US", R.drawable.flag_us)
+        Language("English (US)",               "en-US", R.drawable.flag_us)
     )
 
     val languageNames = supportedLanguages.map { it.name }
