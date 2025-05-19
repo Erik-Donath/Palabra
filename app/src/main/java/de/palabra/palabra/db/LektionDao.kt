@@ -10,6 +10,10 @@ interface LektionDao {
     fun getAllLektionenWithVocabs(): Flow<List<LektionWithVocabs>>
 
     @Transaction
+    @Query("SELECT * FROM Lektion ORDER BY title")
+    suspend fun getAllLektionenWithVocabsSuspend(): List<LektionWithVocabs>?
+
+    @Transaction
     @Query("SELECT * FROM Lektion WHERE id = :lektionId")
     suspend fun getLektionWithVocabsSuspend(lektionId: Int): LektionWithVocabs?
 

@@ -7,9 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import de.palabra.palabra.AllProvider
 import de.palabra.palabra.DebugProvider
+import de.palabra.palabra.LektionProvider
+import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.R
 import de.palabra.palabra.db.AppDatabase
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +42,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
-            val provider = DebugProvider()
-            val intent = Intent(this, LearnActivity::class.java)
-            intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
-            startActivity(intent)
+            val repo = (application as PalabraApplication).repository
+            lifecycleScope.launch {
+                val lektionWithVocab = repo.getAllLektionenWithVocabsSuspend()
+                if (!lektionWithVocab.isNullOrEmpty()) {
+                    val provider = AllProvider(lektionWithVocab)
+                    val intent = Intent(this@MainActivity, LearnActivity::class.java)
+                    intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+                    startActivity(intent)
+                }
+            }
         }
     }
 }
