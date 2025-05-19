@@ -18,7 +18,7 @@ class VocabListDialogFragment : DialogFragment() {
             .setView(binding.root)
             .create()
             .apply {
-                window?.setBackgroundDrawableResource(de.palabra.palabra.R.drawable.rounded_bg)
+                window?.setBackgroundDrawableResource(de.palabra.palabra.R.drawable.bg_rounded)
             }
 
         binding.dialogCloseBtn.setOnClickListener {

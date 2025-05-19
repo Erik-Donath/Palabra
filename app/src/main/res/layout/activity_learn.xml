@@ -2,9 +2,9 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
+    android:layout_height="match_parent">
 
     <!-- Top bar with navigation buttons -->
     <LinearLayout
@@ -17,9 +17,9 @@
         <ImageButton
             android:id="@+id/homeBtn"
             android:backgroundTint="@color/midnight_green"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/rounded_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rounded"
             android:contentDescription="@string/home"
             android:src="@drawable/ic_home_24"
             android:visibility="visible"
@@ -33,9 +33,9 @@
         <ImageButton
             android:id="@+id/listBtn"
             android:backgroundTint="@color/midnight_green"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/rounded_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_rounded"
             android:contentDescription="@string/learn_vocab_list"
             android:src="@drawable/ic_list_24"
             app:tint="@color/white" />
@@ -50,5 +50,6 @@
         app:navGraph="@navigation/learn_nav_graph"
         app:defaultNavHost="true"
         android:layout_gravity="bottom"
-        android:padding="24dp"/>
+        android:padding="24dp"
+        tools:layout="@layout/fragment_guess" />
 </FrameLayout>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@drawable/dialog_rounded_bg"
+    android:background="@drawable/bg_rounded_dialog"
     android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

@@ -31,7 +31,7 @@
                     android:layout_height="36dp"
                     android:src="@drawable/flag__unknown"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_square"
+                    android:background="@drawable/ic_rounded"
                     android:contentDescription="@string/lektion_flag"
                     android:layout_marginEnd="12dp"/>
 
@@ -63,7 +63,7 @@
                     android:id="@+id/playBtn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/green_button"
+                    android:background="@drawable/btn_green"
                     android:src="@drawable/ic_play"
                     android:contentDescription="@string/lektion_play"
                     app:tint="@color/white" />
@@ -97,7 +97,7 @@
                         android:id="@+id/addVocabBtn"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:background="@drawable/rounded_button"
+                        android:background="@drawable/btn_rounded"
                         android:src="@drawable/ic_add"
                         android:contentDescription="@string/lektion_add_vocab"
                         android:layout_marginEnd="8dp"
@@ -106,7 +106,7 @@
                         android:id="@+id/deleteLektionBtn"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:background="@drawable/red_button"
+                        android:background="@drawable/btn_red"
                         android:src="@drawable/ic_delete"
                         android:contentDescription="@string/lektion_delete_lektion"
                         app:tint="@color/white" />

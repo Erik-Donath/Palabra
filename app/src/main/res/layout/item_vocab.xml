@@ -34,7 +34,7 @@
             android:id="@+id/deleteVocabBtn"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/red_button"
+            android:background="@drawable/btn_red"
             android:src="@drawable/ic_delete"
             android:contentDescription="@string/lektion_delete_vocab"
             app:tint="@color/white" />
