@@ -1,6 +1,5 @@
 package de.palabra.palabra
 
-import de.palabra.palabra.db.Vocab
 import java.io.Serializable
 
 data class GuessData(

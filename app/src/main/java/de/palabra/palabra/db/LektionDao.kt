@@ -9,6 +9,11 @@ interface LektionDao {
     @Query("SELECT * FROM Lektion ORDER BY title")
     fun getAllLektionenWithVocabs(): Flow<List<LektionWithVocabs>>
 
+    @Transaction
+    @Query("SELECT * FROM Lektion WHERE id = :lektionId")
+    suspend fun getLektionWithVocabsSuspend(lektionId: Int): LektionWithVocabs?
+
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLektion(lektion: Lektion): Long
 

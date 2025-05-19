@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import de.palabra.palabra.GuessData
-import de.palabra.palabra.R
 import de.palabra.palabra.databinding.FragmentGuessBinding
 
 class GuessFragment : Fragment() {

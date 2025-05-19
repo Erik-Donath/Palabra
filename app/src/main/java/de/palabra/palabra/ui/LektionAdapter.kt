@@ -17,7 +17,8 @@ class LektionAdapter(
     private val onLektionDelete: (Lektion) -> Unit,
     private val onVocabDelete: (Vocab) -> Unit,
     private val onLektionExpand: (Int) -> Unit,
-    private val onAddVocab: (Int) -> Unit
+    private val onAddVocab: (Int) -> Unit,
+    private val onStartLearn: (Int) -> Unit
 ) : ListAdapter<LektionWithVocabs, LektionAdapter.LektionViewHolder>(DIFF) {
 
     companion object {
@@ -49,6 +50,7 @@ class LektionAdapter(
 
             // Play button (right)
             binding.playBtn.setOnClickListener {
+                onStartLearn(lektion.id)
             }
             // Add Vocab button
             binding.addVocabBtn.setOnClickListener {

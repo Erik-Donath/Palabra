@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface VocabDao {
     @Query("SELECT * FROM vocab WHERE lektionId = :lektionId")
-    fun getVocabsForLektion(lektionId: Long): LiveData<List<Vocab>>
+    suspend fun getVocabsForLektion(lektionId: Int): List<Vocab>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVocab(vocab: Vocab): Long

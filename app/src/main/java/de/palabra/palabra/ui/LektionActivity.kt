@@ -1,11 +1,14 @@
 package de.palabra.palabra.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import de.palabra.palabra.LektionProvider
 import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.databinding.ActivityLektionBinding
 import de.palabra.palabra.db.Lektion
@@ -28,7 +31,8 @@ class LektionActivity : AppCompatActivity() {
             onLektionDelete = { lektion -> viewModel.deleteLektion(lektion) },
             onVocabDelete = { vocab -> viewModel.deleteVocab(vocab) },
             onLektionExpand = { lektionId -> viewModel.toggleExpansion(lektionId) },
-            onAddVocab = { lektionId -> showAddVocabDialog(lektionId) }
+            onAddVocab = { lektionId -> showAddVocabDialog(lektionId) },
+            onStartLearn = { lektionId -> startLearnActivity(lektionId)}
         )
         binding.lektionRecycler.layoutManager = LinearLayoutManager(this)
         binding.lektionRecycler.adapter = adapter
@@ -86,5 +90,19 @@ class LektionActivity : AppCompatActivity() {
                 )
             }
         }.show(supportFragmentManager, "AddVocabDialog")
+    }
+
+
+    private fun startLearnActivity(lektionId: Int) {
+        val repo = (application as PalabraApplication).repository
+        lifecycleScope.launch {
+            val lektionWithVocab = repo.getLektionWithVocabsSuspend(lektionId)
+            if (lektionWithVocab != null && lektionWithVocab.vocabs.isNotEmpty()) {
+                val provider = LektionProvider(lektionWithVocab)
+                val intent = Intent(this@LektionActivity, LearnActivity::class.java)
+                intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+                startActivity(intent)
+            }
+        }
     }
 }
