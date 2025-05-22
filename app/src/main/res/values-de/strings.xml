@@ -4,7 +4,7 @@
 
     <!-- General!-->
     <string name="home">Start</string>
-    <string name="back">Zurücj</string>
+    <string name="back">Zurück</string>
     <string name="score">Score</string>
     <string name="close">Schließen</string>
     <string name="cancel">Abbrechen</string>
@@ -12,10 +12,10 @@
     <string name="next">Nächste</string>
 
     <!-- Main Activity !-->
-    <string name="main_license">Lizens</string>
+    <string name="main_license">Lizenz</string>
     <string name="main_lextions">Lektionen</string>
     <string name="main_smart">Schlaues Lernen</string>
-    <string name="main_all">Alle Vocabeln</string>
+    <string name="main_all">Alle Vokabeln</string>
     <string name="main_star">Stern</string>
 
     <!-- Lektion Activity !-->

@@ -10,7 +10,7 @@ object LanguageUtil {
     )
 
     private val supportedLanguages = listOf(
-        Language("English (GB)",               "en",    R.drawable.flag_gb), // en-GB
+        Language("English (GB)",                "en",    R.drawable.flag_gb), // en-GB
         Language("Spanish",                     "es",    R.drawable.flag_es),
         Language("French",                      "fr",    R.drawable.flag_fr),
         Language("German",                      "de",    R.drawable.flag_de),
