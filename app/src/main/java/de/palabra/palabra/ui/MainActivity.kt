@@ -2,6 +2,7 @@ package de.palabra.palabra.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +10,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import de.palabra.palabra.AllProvider
-import de.palabra.palabra.DebugProvider
-import de.palabra.palabra.LektionProvider
 import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.R
-import de.palabra.palabra.db.AppDatabase
+import de.palabra.palabra.SmartProvider
+import de.palabra.palabra.db.LektionWithVocabs
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LektionActivity::class.java))
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
-            val provider = DebugProvider()
+            val provider = SmartProvider()
             val intent = Intent(this, LearnActivity::class.java)
             intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
             startActivity(intent)
@@ -44,13 +44,23 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.allBtn).setOnClickListener {
             val repo = (application as PalabraApplication).repository
             lifecycleScope.launch {
-                val lektionWithVocab = repo.getAllLektionenWithVocabsSuspend()
-                if (!lektionWithVocab.isNullOrEmpty()) {
-                    val provider = AllProvider(lektionWithVocab)
-                    val intent = Intent(this@MainActivity, LearnActivity::class.java)
-                    intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
-                    startActivity(intent)
+                val lektionWithVocab: List<LektionWithVocabs> = (repo.getAllLektionenWithVocabsSuspend()) ?: return@launch
+
+                // HACK: Check if no vocab is available
+                if(lektionWithVocab.isEmpty()) return@launch
+                var empty = true;
+                for(e in lektionWithVocab) {
+                    if (e.vocabs.isNotEmpty()) {
+                        empty = false
+                        break
+                    }
                 }
+                if(empty) return@launch
+
+                val provider = AllProvider(lektionWithVocab)
+                val intent = Intent(this@MainActivity, LearnActivity::class.java)
+                intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+                startActivity(intent)
             }
         }
     }
