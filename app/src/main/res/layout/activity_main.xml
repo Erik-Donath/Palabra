@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorBackground"
     tools:context=".ui.MainActivity">
 
     <Button
@@ -13,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/midnight_green"
+        android:textColor="@color/onPrimary"
         android:text="@string/main_license"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,12 +47,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="18dp"
-            app:strokeColor="@color/sage"
             app:strokeWidth="3dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="@android:color/white">
+            app:strokeColor="@color/sage"
+            android:backgroundTint="@color/surface"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,13 +69,15 @@
                     android:layout_marginBottom="32dp"
                     android:text="@string/score"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent" />
 
                 <Button
                     android:id="@+id/lektionBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
+                    android:textColor="@color/onPrimary"
                     android:backgroundTint="@color/midnight_green"
                     android:text="@string/main_lextions" />
 
@@ -81,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:backgroundTint="@color/midnight_green"
+                    android:textColor="@color/onPrimary"
                     android:text="@string/main_smart" />
 
                 <Button
@@ -88,6 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/midnight_green"
+                    android:textColor="@color/onPrimary"
                     android:text="@string/main_all" />
             </LinearLayout>
 

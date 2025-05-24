@@ -18,10 +18,11 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Correct!"
-        android:textColor="@color/midnight_green"
         android:textSize="70sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:textColor="@color/onPrimary"
+        />
 
     <!-- Original word -->
     <TextView
@@ -32,7 +33,9 @@
         android:gravity="center"
         android:text="Word"
         android:textSize="22sp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:textColor="@color/onPrimary"
+        />
 
     <!-- Selected answer -->
     <TextView
@@ -43,7 +46,9 @@
         android:gravity="center"
         android:text="Solution 1"
         android:textSize="22sp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:textColor="@color/onPrimary"
+        />
 
     <!-- Navigation buttons -->
     <LinearLayout
@@ -57,8 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
+            android:text="@string/next"
             android:backgroundTint="@color/midnight_green"
-            android:textColor="@color/white"
-            android:text="@string/next" />
+            android:textColor="@color/onPrimary"
+            />
     </LinearLayout>
 </LinearLayout>

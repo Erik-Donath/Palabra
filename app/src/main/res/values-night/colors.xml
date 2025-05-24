@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/values-night/colors.xml -->
 <resources>
-    <color name="background">#FFFFFF</color>
-    <color name="surface">#F5F5F5</color>
+    <color name="background">#121212</color>
+    <color name="surface">#22282B</color>
     <color name="primary">#185349</color>
     <color name="onPrimary">#FFFFFF</color>
-    <color name="textPrimary">#222222</color>
+    <color name="textPrimary">#FFFFFF</color>
 
     <color name="verdigris">#FF2DA9B0</color>
     <color name="sage">#FFC2C1A5</color>

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground">
 
     <!-- Top bar with navigation buttons -->
     <LinearLayout
@@ -23,7 +24,7 @@
             android:contentDescription="@string/home"
             android:src="@drawable/ic_home_24"
             android:visibility="visible"
-            app:tint="@color/white" />
+            app:tint="?attr/colorOnPrimary" />
 
         <View
             android:layout_width="0dp"
@@ -38,7 +39,7 @@
             android:background="@drawable/btn_rounded"
             android:contentDescription="@string/learn_vocab_list"
             android:src="@drawable/ic_list_24"
-            app:tint="@color/white" />
+            app:tint="?attr/colorOnPrimary" />
     </LinearLayout>
 
     <!-- Navigation Host Fragment for Fragments -->

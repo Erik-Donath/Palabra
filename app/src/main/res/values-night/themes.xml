@@ -1,7 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Palabra" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.Palabra" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorOnSecondary">@color/onPrimary</item>
+        <!-- Background and surface. -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/textPrimary</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+        <!-- Default text color -->
+        <item name="android:textColor">@color/textPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/primary</item>
+        <!-- Optional: Remove elevation from action bar if you use one -->
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <!-- Optional: ActionBar style -->
+    <style name="ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:elevation">0dp</item>
     </style>
 </resources>

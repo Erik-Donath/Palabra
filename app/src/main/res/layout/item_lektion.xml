@@ -66,7 +66,7 @@
                     android:background="@drawable/btn_green"
                     android:src="@drawable/ic_play"
                     android:contentDescription="@string/lektion_play"
-                    app:tint="@color/white" />
+                    app:tint="?attr/colorOnPrimary" />
             </LinearLayout>
 
             <!-- Expansion -->
@@ -98,10 +98,11 @@
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:background="@drawable/btn_rounded"
+                        android:backgroundTint="@color/midnight_green"
                         android:src="@drawable/ic_add"
                         android:contentDescription="@string/lektion_add_vocab"
                         android:layout_marginEnd="8dp"
-                        app:tint="@color/white" />
+                        app:tint="?attr/colorOnPrimary" />
                     <ImageButton
                         android:id="@+id/deleteLektionBtn"
                         android:layout_width="36dp"
@@ -109,7 +110,7 @@
                         android:background="@drawable/btn_red"
                         android:src="@drawable/ic_delete"
                         android:contentDescription="@string/lektion_delete_lektion"
-                        app:tint="@color/white" />
+                        app:tint="?attr/colorOnPrimary" />
                 </LinearLayout>
 
                 <LinearLayout

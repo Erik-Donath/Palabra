@@ -21,14 +21,15 @@
             <!-- Home/Back Button -->
             <ImageButton
                 android:id="@+id/homeBtn"
-                android:backgroundTint="@color/midnight_green"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/btn_rounded"
                 android:contentDescription="@string/home"
                 android:src="@drawable/ic_home_24"
                 android:visibility="visible"
-                app:tint="@color/white" />
+                android:textColor="@color/onPrimary"
+                android:backgroundTint="@color/midnight_green"
+                app:tint="?attr/colorOnPrimary" />
 
             <SearchView
                 android:id="@+id/searchView"
@@ -40,14 +41,15 @@
 
             <ImageButton
                 android:id="@+id/addLektionBtn"
-                android:backgroundTint="@color/midnight_green"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/btn_rounded"
                 android:src="@drawable/ic_add"
                 android:contentDescription="@string/lektion_add_lektion"
-                app:tint="@color/white" />
+                android:textColor="@color/onPrimary"
+                android:backgroundTint="@color/midnight_green"
+                app:tint="?attr/colorOnPrimary" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

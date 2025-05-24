@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/bg_rounded_dialog"
@@ -59,10 +60,12 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:text="@string/cancel"
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            app:tint="?attr/colorOnPrimary"
+            />
 
         <Button
             android:id="@+id/btnAdd"
@@ -70,6 +73,8 @@
             android:layout_marginStart="16dp"
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:tint="?attr/colorOnPrimary"
+            />
     </LinearLayout>
 </LinearLayout>
