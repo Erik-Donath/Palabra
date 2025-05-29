@@ -40,7 +40,7 @@ Ziel des Projekts ist die Entwicklung einer Lern-App zum Vokabellernen. Beim Sta
 \subsection{Organisation}
 Die Aufgabenverteilung erfolgte nach den jeweiligen Stärken und Interessen der Teammitglieder. Erik war als Head Programmer ausschließlich für den Code verantwortlich. Marit übernahm Dokumentation und Design. Daniel arbeitete als Allrounder sowohl am Code als auch an der Dokumentation mit.
 
-Wichtige Abgabetermine wurden in Notion dokumentiert und organisiert. Für jede Aufgabe wurde eine eigene Seite erstellt und einer verantwortlichen Person zugewiesen. Tagesprotokolle wurden ebenfalls in Notion hochgeladen, sodass der Fortschritt für alle Teammitglieder transparent war. Dadurch verlief die Organisation reibungslos und größere Komplikationen konnten vermieden werden.
+Wichtige Abgabetermine wurden in Notion dokumentiert und organisiert. Für jede Aufgabe wurde eine eigene Seite erstellt und einer verantwortlichen Person zugewiesen. Tagesprotokolle wurden ebenfalls in Notion hochgeladen, sodass der Fortschritt für alle Teammitglieder transparent war. Dadurch verlief die Organisation reibungslos, und größere Komplikationen konnten vermieden werden.
 
 \section{Planung}
 
@@ -74,6 +74,7 @@ Der Entwicklungsprozess umfasste regelmäßige Code-Reviews, Nutzung von GitHub-
 
 \subsubsection{Wichtige Commits}
 Im Folgenden sind die wichtigsten Commits mit Link zum Repository aufgeführt. Diese Liste dokumentiert die Entwicklungsschritte und zeigt, wie sich das Projekt technisch und funktional weiterentwickelt hat:
+
 \begin{itemize}
     \item \href{https://github.com/Erik-Donath/Palabra/commit/864ebf0f71aac98fae10cba9fc118028a1333fd8}{Initial commit} -- Projektstart und erste Strukturierung des Repositories.
     \item \href{https://github.com/Erik-Donath/Palabra/commit/13b34d5efca6c7f2dcc97147ada92919e193a322}{Added Room Library und Projektarchitektur} -- Integration der Room-Datenbank und grundlegende Architektur.
@@ -244,6 +245,34 @@ Zur Speicherung der Vokabeln und Lektionen wurde die Room-Datenbank verwendet. D
 
 Provider-Klassen wie \texttt{AllProvider} und \texttt{LektionProvider} kapseln den Datenbankzugriff und stellen die Daten für die UI bereit. Fehlerfälle bei fehlenden Vokabeln werden behandelt.
 
+\subsection{Umfang des Quellcodes}
+
+Um einen Überblick über die technische Dimension des Projekts zu geben, werden im Folgenden die wesentlichen Kennzahlen zur Codebasis dargestellt. Die Angabe der Codezeilen und Dateitypen hilft, den Umfang und die Komplexität der Entwicklung einzuschätzen und erleichtert künftigen Entwickler:innen die Orientierung im Projekt.
+
+Die folgende Tabelle zeigt die wichtigsten Bestandteile des Quellcodes sowie deren Umfang zum Zeitpunkt der Abgabe:
+
+\begin{table}[H]
+\centering
+\caption{Überblick über die wichtigsten Projektdateien und Codezeilen}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Dateityp} & \textbf{Dateien} & \textbf{Codezeilen} \\
+\midrule
+Kotlin    & 25  & 773 \\
+XML       & 88  & 5\,036 \\
+JSON      & 2   & 152 \\
+Markdown  & 1   & 46 \\
+TeX       & 1   & 206 \\
+\midrule
+\textbf{Summe}   & \textbf{117} & \textbf{6\,213} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die größte Codebasis entfällt auf die XML-Dateien, in denen die Benutzeroberfläche und Layouts definiert sind. Der Kern der Anwendungslogik ist in Kotlin implementiert. Hinzu kommen Konfigurations- und Dokumentationsdateien in JSON, Markdown und TeX.
+
+Eine detaillierte Aufschlüsselung aller weiteren Dateitypen und deren Umfang befindet sich im Anhang.
+
 \section{Schlussfolgerung und Ausblick}
 
 \subsection{Soll-Ist-Vergleich}
@@ -253,9 +282,7 @@ Alle im Abschnitt \textit{Soll-Analyse} definierten Funktionen wurden wie geplan
 Im Projektverlauf traten einige Abweichungen vom ursprünglichen Plan auf. Hauptgründe waren Zeitdruck in der Endphase, Koordinationsprobleme im Team und technische Herausforderungen bei Wunschfunktionen wie dem Punktesystem oder der iOS-Portierung. Einige Wunschkriterien wurden zugunsten der Kernfunktionen zurückgestellt. Die Dokumentation wurde nicht immer zeitnah gepflegt, was die Nachvollziehbarkeit erschwerte.
 
 \subsection{Fazit und Ausblick}
-Das Projekt „Palabra“ hat im Rahmen der Gruppenarbeit zahlreiche Erkenntnisse sowohl hinsichtlich der Strukturierung als auch der Zusammenarbeit im Team hervorgebracht. Zu Beginn wurde eine Tabelle zur Dokumentation von Problemen eingerichtet, um deren Entwicklung nachvollziehen zu können. Leider wurde diese gegen Ende des Projekts nicht mehr konsequent genutzt, sodass die Nachvollziehbarkeit einzelner Problemstellungen im Rückblick erschwert wurde.
-
-Trotz festgelegter Termine konnten einige Abgaben nicht rechtzeitig fertiggestellt werden, was insbesondere bei der Erstellung und Nutzung von Diagrammen zu Zeitdruck führte. Eine der größten Herausforderungen bestand darin, das Team regelmäßig zusammenzubringen und gemeinsam an den zugewiesenen Aufgaben zu arbeiten. Obwohl der grundsätzliche Aufbau des Projekts zu Beginn klar war, wurde es mit fortschreitender Entwicklung zunehmend schwieriger, den Überblick über fehlende Elemente und offene Aufgaben zu behalten.
+Das Projekt „Palabra“ hat im Rahmen der Gruppenarbeit zahlreiche Erkenntnisse sowohl hinsichtlich der Strukturierung als auch der Zusammenarbeit im Team hervorgebracht. Zu Beginn wurde eine Tabelle zur Dokumentation von Problemen eingerichtet, um deren Entwicklung nachvollziehen zu können. Leider wurde diese gegen Ende des Projekts nicht mehr konsequent genutzt, sodass die Nachvollziehbarkeit einzelner Problemstellungen im Rückblick erschwert wurde. Trotz festgelegter Termine konnten einige Abgaben nicht rechtzeitig fertiggestellt werden, was insbesondere bei der Erstellung und Nutzung von Diagrammen zu Zeitdruck führte. Eine der größten Herausforderungen bestand darin, das Team regelmäßig zusammenzubringen und gemeinsam an den zugewiesenen Aufgaben zu arbeiten. Obwohl der grundsätzliche Aufbau des Projekts zu Beginn klar war, wurde es mit fortschreitender Entwicklung zunehmend schwieriger, den Überblick über fehlende Elemente und offene Aufgaben zu behalten.
 
 Auch die Arbeit am Code gestaltete sich phasenweise ernüchternd. Zwar war von Anfang an festgelegt, dass die Entwicklung in Android Studio erfolgen sollte, dennoch wurde diese Entscheidung gegen Ende des Projekts hinterfragt – insbesondere im Hinblick auf alternative Entwicklungsumgebungen oder Programmiersprachen, die beispielsweise eine einfachere Datenbankanbindung ermöglicht hätten. Letztlich blieb es jedoch bei der ursprünglichen Wahl, auch wenn diese Überlegungen kurzzeitig für Unsicherheit sorgten.
 
@@ -270,13 +297,10 @@ Auch sollte zu Beginn eines Projekts verbindlich festgelegt werden, wie die tech
 Abschließend lässt sich festhalten, dass das Projekt trotz aller Herausforderungen und Schwierigkeiten ein zufriedenstellendes Ergebnis hervorgebracht hat. Die Motivation, künftig auch die Wunschkriterien zu realisieren, ist hoch. Die im Verlauf des Projekts aufgetretenen Probleme werden als wertvolle Erfahrungen betrachtet und dienen als Grundlage für Verbesserungen in zukünftigen Projekten. Insgesamt war das Projekt „Palabra“ ein lehrreicher Prozess, der sowohl die Stärken als auch die Optimierungspotenziale der Teamarbeit und Projektorganisation aufgezeigt hat.
 
 \appendix
-Natürlich! Hier ist dein Anhang in einer formelleren und sprachlich überarbeiteten Version für deine Dokumentation:
-
----
 
 \section{Anhang}
 
-Da der vollständige Quellcode mit 773 Zeilen in Kotlin und 5.036 Zeilen in XML sehr umfangreich ist, würde ein Abdruck im Anhang den Rahmen dieser Dokumentation sprengen. Aus diesem Grund wird an dieser Stelle auf das entsprechende GitHub-Repository verwiesen, der folgende Link führt sie zu dem Quellcode zum Zeitpunkt der Abgabe dieser Dokumentaion:  
+Da der vollständige Quellcode mit 773 Zeilen in Kotlin und 5.036 Zeilen in XML sehr umfangreich ist, würde ein Abdruck im Anhang den Rahmen dieser Dokumentation sprengen. Aus diesem Grund wird an dieser Stelle auf das entsprechende GitHub-Repository verwiesen. Der folgende Link führt Sie zu dem Quellcode zum Zeitpunkt der Abgabe dieser Dokumentation:  
 \href{https://github.com/Erik-Donath/Palabra/tree/cc55c524ebff2f6db85a36f6ec2c0afb23070e2f}{GitHub-Link zum Quellcode}.
 
 \subsection*{Überblick über die Projektdateien}
@@ -310,12 +334,12 @@ ProGuard       & 1   & 3   & 18  & 0      \\
 
 \textit{Stand: Mittwoch, 28. Mai 2025, 20:00 Uhr (CEST)}
 \\\\
-Wobei zu bedenken ist, dass hierbei auch Scripte des Build Systems sowie die Dokumentation selbst betrachtet werden. Die für die Bewertung relevanten Sprachen sind Kotlin, XML, JSON und ggf. Markdown sowie TeX.
+Wobei zu bedenken ist, dass hierbei auch Skripte des Build-Systems sowie die Dokumentation selbst betrachtet werden. Die für die Bewertung relevanten Sprachen sind Kotlin, XML, JSON und ggf. Markdown sowie TeX.
 
 \newpage
 \subsection*{Verwendete Bilder und Grafiken}
 
-Im Folgenden sind alle in der Dokumentation verwendeten Grafiken tabellarisch aufgeführt. Die Dokumentation und somit auch die Grafiken befinden sich ebenfalls auf dem Github Repository: \href{https://github.com/Erik-Donath/Palabra/tree/cc55c524ebff2f6db85a36f6ec2c0afb23070e2f/docs}{Dokumentations Ordner}.
+Im Folgenden sind alle in der Dokumentation verwendeten Grafiken tabellarisch aufgeführt. Die Dokumentation und somit auch die Grafiken befinden sich ebenfalls im GitHub Repository: \href{https://github.com/Erik-Donath/Palabra/tree/cc55c524ebff2f6db85a36f6ec2c0afb23070e2f/docs}{Dokumentations-Ordner}.
 
 \begin{table}[htbp]
 \centering
@@ -338,6 +362,6 @@ showcase/Add\_Lektion.png & Dialog zum Hinzufügen einer Lektion \\
 \end{tabularx}
 \end{table}
 
-\textit{Hinweis: Die Dateinamen und Pfade entsprechen dem Stand des Projekts zum Abgabezeitpunkt. Die tatsächlichen Bilder sind im Projektverzeichnis unter \texttt{showcase/} bzw. im gleichen Verzeichniss abgelegt.}
+\textit{Hinweis: Die Dateinamen und Pfade entsprechen dem Stand des Projekts zum Abgabezeitpunkt. Die tatsächlichen Bilder sind im Projektverzeichnis unter \texttt{showcase/} bzw. im gleichen Verzeichnis abgelegt.}
 
 \end{document}
