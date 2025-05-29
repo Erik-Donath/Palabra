@@ -11,6 +11,8 @@
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
 \geometry{left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \pagestyle{fancy}
 \fancyhf{}
@@ -268,6 +270,46 @@ Auch sollte zu Beginn eines Projekts verbindlich festgelegt werden, wie die tech
 Abschließend lässt sich festhalten, dass das Projekt trotz aller Herausforderungen und Schwierigkeiten ein zufriedenstellendes Ergebnis hervorgebracht hat. Die Motivation, künftig auch die Wunschkriterien zu realisieren, ist hoch. Die im Verlauf des Projekts aufgetretenen Probleme werden als wertvolle Erfahrungen betrachtet und dienen als Grundlage für Verbesserungen in zukünftigen Projekten. Insgesamt war das Projekt „Palabra“ ein lehrreicher Prozess, der sowohl die Stärken als auch die Optimierungspotenziale der Teamarbeit und Projektorganisation aufgezeigt hat.
 
 \appendix
+Natürlich! Hier ist dein Anhang in einer formelleren und sprachlich überarbeiteten Version für deine Dokumentation:
+
+---
+
 \section{Anhang}
+
+Da der vollständige Quellcode mit 773 Zeilen in Kotlin und 5.036 Zeilen in XML sehr umfangreich ist, würde ein Abdruck im Anhang den Rahmen dieser Dokumentation sprengen. Aus diesem Grund wird an dieser Stelle auf das entsprechende GitHub-Repository verwiesen, der folgende Link führt sie zu dem Quellcode zum Zeitpunkt der Abgabe dieser Dokumentaion:  
+\href{https://github.com/Erik-Donath/Palabra/tree/cc55c524ebff2f6db85a36f6ec2c0afb23070e2f}{GitHub-Link zum Quellcode}.
+
+\subsection*{Überblick über die Projektdateien}
+
+Die folgende Tabelle gibt einen Überblick über die im Projekt enthaltenen Dateien und deren Umfang:
+
+\begin{table}[htbp]
+\centering
+\caption{Überblick über die Projektdateien}
+\begin{tabularx}{\textwidth}{lrrrr}
+\toprule
+\textbf{Sprache/Dateityp} & \textbf{Dateien} & \textbf{Leerzeilen} & \textbf{Kommentare} & \textbf{Codezeilen} \\
+\midrule
+XML            & 88  & 88  & 58  & 5\,036 \\
+Kotlin         & 25  & 135 & 8   & 773    \\
+TeX            & 1   & 67  & 0   & 206    \\
+JSON           & 2   & 0   & 0   & 152    \\
+Bourne Shell   & 1   & 23  & 36  & 126    \\
+Gradle         & 3   & 16  & 8   & 104    \\
+DOS Batch      & 1   & 21  & 2   & 66     \\
+Markdown       & 1   & 25  & 0   & 46     \\
+TOML           & 1   & 2   & 0   & 36     \\
+Properties     & 4   & 0   & 28  & 11     \\
+Text           & 1   & 0   & 0   & 1      \\
+ProGuard       & 1   & 3   & 18  & 0      \\
+\midrule
+\textbf{Summe} & \textbf{129} & \textbf{380} & \textbf{158} & \textbf{6\,557} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textit{Stand: Mittwoch, 28. Mai 2025, 20:00 Uhr (CEST)}
+\\\\
+Wobei zu bedenken ist das hierbei auch Scripte des Build Systems sowie die Dokumentation selbst betrachtet werden. Die für die Bewertung relevanten Sprachen sind Kotlin, XML, JSON und ggf. Markdown sowie TeX.
 
 \end{document}
