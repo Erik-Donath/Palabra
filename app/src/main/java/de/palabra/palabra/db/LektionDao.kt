@@ -7,26 +7,25 @@ import kotlinx.coroutines.flow.Flow
 interface LektionDao {
     @Transaction
     @Query("SELECT * FROM Lektion ORDER BY title")
-    fun getAllLektionenWithVocabs(): Flow<List<LektionWithVocabs>>
+    fun getAllLektionenWithVocabsFlow(): Flow<List<LektionWithVocabs>>
 
     @Transaction
     @Query("SELECT * FROM Lektion ORDER BY title")
-    suspend fun getAllLektionenWithVocabsSuspend(): List<LektionWithVocabs>?
+    suspend fun getAllLektionenWithVocabs(): List<LektionWithVocabs>
 
     @Transaction
     @Query("SELECT * FROM Lektion WHERE id = :lektionId")
-    suspend fun getLektionWithVocabsSuspend(lektionId: Int): LektionWithVocabs?
+    suspend fun getLektionWithVocabs(lektionId: Int): LektionWithVocabs?
 
+    @Query("SELECT * FROM Lektion ORDER BY title")
+    suspend fun getAllLektionen(): List<Lektion>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLektion(lektion: Lektion): Long
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertVocab(vocab: Vocab): Long
+    @Update
+    suspend fun updateLektion(lektion: Lektion)
 
     @Delete
     suspend fun deleteLektion(lektion: Lektion)
-
-    @Delete
-    suspend fun deleteVocab(vocab: Vocab)
 }

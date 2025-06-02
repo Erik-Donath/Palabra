@@ -1,5 +1,6 @@
 package de.palabra.palabra.ui
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ class AddLektionDialogFragment(
     private lateinit var langCodes: List<String>
     private lateinit var langNames: List<String>
 
+    @SuppressLint("UseGetLayoutInflater")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.dialog_add_lektion, null)

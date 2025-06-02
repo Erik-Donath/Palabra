@@ -1,16 +1,21 @@
 package de.palabra.palabra
 
-import de.palabra.palabra.db.LektionWithVocabs
+import android.content.Context
+import de.palabra.palabra.db.PalabraDatabase
+import de.palabra.palabra.db.Vocab
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.Serializable
 
-class AllProvider(
-    allLektions: List<LektionWithVocabs>
-) : IProvider {
+class AllProvider private constructor(
+    allVocabs: List<Vocab>
+) : IProvider, Serializable {
+
     private val data: List<GuessData>
     private var index: Int = 0
 
     init {
-        val allVocabs = allLektions.flatMap { it.vocabs }
-        require(allVocabs.isNotEmpty()) { "AllProvider needs at least one vocab in all lektions." }
+        require(allVocabs.isNotEmpty()) { "AllProvider needs at least one vocab." }
         val allSolutions = allVocabs.map { it.toWord }.toSet()
         data = allVocabs.map { vocab ->
             val correctSolution = vocab.toWord
@@ -30,4 +35,12 @@ class AllProvider(
     override fun getNextGuess(): GuessData? = data.getOrNull(index++)
 
     override fun reset() { index = 0 }
+
+    companion object {
+        suspend fun create(context: Context): AllProvider? = withContext(Dispatchers.IO) {
+            val db = PalabraDatabase.getInstance(context)
+            val allVocabs = db.vocabDao().getAllVocabs()
+            if (allVocabs.isNotEmpty()) AllProvider(allVocabs) else null
+        }
+    }
 }

@@ -10,7 +10,8 @@ import androidx.room.PrimaryKey
         entity = Lektion::class,
         parentColumns = ["id"],
         childColumns = ["lektionId"],
-        onDelete = ForeignKey.CASCADE
+        onDelete = ForeignKey.CASCADE,
+        onUpdate = ForeignKey.CASCADE
     )],
     indices = [Index("lektionId")]
 )

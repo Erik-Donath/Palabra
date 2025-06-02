@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Lektion(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
-    val fromLangCode: String, // e.g. "de"
-    val toLangCode: String,   // e.g. "en"
+    val fromLangCode: String,
+    val toLangCode: String,
     val description: String
 )

@@ -39,7 +39,6 @@ class LektionAdapter(
 
     inner class LektionViewHolder(private val binding: ItemLektionBinding) : RecyclerView.ViewHolder(binding.root) {
         private var expanded: Boolean = false
-        private var lektionId: Int = 0
         fun bind(item: LektionWithVocabs) {
             val lektion = item.lektion
             binding.titleText.text = lektion.title

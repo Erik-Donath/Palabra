@@ -1,5 +1,5 @@
 [versions]
-agp = "8.10.0"
+agp = "8.10.1"
 fragmentKtx = "1.8.6"
 googleMaterial = "1.12.0"
 hiltAndroid = "2.48"

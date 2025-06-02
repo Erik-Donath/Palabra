@@ -3,16 +3,15 @@ package de.palabra.palabra.ui
 import android.content.Intent
 import android.os.Bundle
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import de.palabra.palabra.LektionProvider
 import de.palabra.palabra.PalabraApplication
-import de.palabra.palabra.databinding.ActivityLektionBinding
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
+import de.palabra.palabra.databinding.ActivityLektionBinding
+import de.palabra.palabra.LektionProvider
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -48,14 +47,10 @@ class LektionActivity : AppCompatActivity() {
             }
         })
 
-        binding.homeBtn.setOnClickListener {
-            finish()
-        }
+        binding.homeBtn.setOnClickListener { finish() }
+        binding.addLektionBtn.setOnClickListener { showAddLektionDialog() }
 
-        binding.addLektionBtn.setOnClickListener {
-            showAddLektionDialog()
-        }
-
+        // Observe LiveData bridged from Flow for REAL updates
         viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
             adapter.submitList(lektionen)
         }
@@ -92,13 +87,10 @@ class LektionActivity : AppCompatActivity() {
         }.show(supportFragmentManager, "AddVocabDialog")
     }
 
-
     private fun startLearnActivity(lektionId: Int) {
-        val repo = (application as PalabraApplication).repository
         lifecycleScope.launch {
-            val lektionWithVocab = repo.getLektionWithVocabsSuspend(lektionId)
-            if (lektionWithVocab != null && lektionWithVocab.vocabs.isNotEmpty()) {
-                val provider = LektionProvider(lektionWithVocab)
+            val provider = LektionProvider.create(this@LektionActivity, lektionId)
+            if (provider != null && provider.getGuessList().isNotEmpty()) {
                 val intent = Intent(this@LektionActivity, LearnActivity::class.java)
                 intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                 startActivity(intent)

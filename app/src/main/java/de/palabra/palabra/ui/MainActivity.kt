@@ -42,25 +42,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
-            val repo = (application as PalabraApplication).repository
             lifecycleScope.launch {
-                val lektionWithVocab: List<LektionWithVocabs> = (repo.getAllLektionenWithVocabsSuspend()) ?: return@launch
-
-                // HACK: Check if no vocab is available
-                if(lektionWithVocab.isEmpty()) return@launch
-                var empty = true;
-                for(e in lektionWithVocab) {
-                    if (e.vocabs.isNotEmpty()) {
-                        empty = false
-                        break
-                    }
+                val provider = AllProvider.create(this@MainActivity)
+                if (provider != null && provider.getGuessList().isNotEmpty()) {
+                    val intent = Intent(this@MainActivity, LearnActivity::class.java)
+                    intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+                    startActivity(intent)
+                } else {
+                    // Handle empty state
+                    Log.w("Main", "There are no vocab's registered to learn.")
                 }
-                if(empty) return@launch
-
-                val provider = AllProvider(lektionWithVocab)
-                val intent = Intent(this@MainActivity, LearnActivity::class.java)
-                intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
-                startActivity(intent)
             }
         }
     }

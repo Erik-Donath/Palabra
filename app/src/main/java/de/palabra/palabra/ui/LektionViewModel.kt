@@ -5,24 +5,29 @@ import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.LektionWithVocabs
 import de.palabra.palabra.db.Repository
 import de.palabra.palabra.db.Vocab
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class LektionViewModel(private val repository: Repository) : ViewModel() {
     private val _searchQuery = MutableLiveData("")
     private val _expandedLektionIds = MutableLiveData<Set<Int>>(emptySet())
 
-    private val allLektionenWithVocabs = repository.getAllLektionenWithVocabs().asLiveData()
+    // Bridge Flow to LiveData for proper observation
+    val allLektionenWithVocabs: LiveData<List<LektionWithVocabs>> =
+        repository.getAllLektionenWithVocabsFlow().asLiveData()
 
-    val filteredLektionWithVocabs: LiveData<List<LektionWithVocabs>> = MediatorLiveData<List<LektionWithVocabs>>().also { mediator ->
-        fun update() {
-            val query = _searchQuery.value.orEmpty().lowercase()
-            val data = allLektionenWithVocabs.value.orEmpty()
-            mediator.value = if (query.isBlank()) data
-            else data.filter { it.lektion.title.lowercase().contains(query) }
+    val filteredLektionWithVocabs: LiveData<List<LektionWithVocabs>> =
+        MediatorLiveData<List<LektionWithVocabs>>().apply {
+            fun update() {
+                val query = _searchQuery.value.orEmpty().lowercase()
+                val data = allLektionenWithVocabs.value.orEmpty()
+                value = if (query.isBlank()) data
+                else data.filter { it.lektion.title.lowercase().contains(query) }
+            }
+            addSource(allLektionenWithVocabs) { update() }
+            addSource(_searchQuery) { update() }
         }
-        mediator.addSource(allLektionenWithVocabs) { update() }
-        mediator.addSource(_searchQuery) { update() }
-    }
 
     fun setSearchQuery(query: String) {
         _searchQuery.value = query

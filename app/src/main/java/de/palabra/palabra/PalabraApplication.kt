@@ -1,8 +1,6 @@
 package de.palabra.palabra
 
 import android.app.Application
-import androidx.room.Room
-import de.palabra.palabra.db.AppDatabase
 import de.palabra.palabra.db.Repository
 
 class PalabraApplication : Application() {
@@ -11,11 +9,10 @@ class PalabraApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "palabra.db"
-        ).build()
-        repository = Repository(db.lektionDao())
+        initialize()
+    }
+
+    private fun initialize() {
+        repository = Repository(this)
     }
 }

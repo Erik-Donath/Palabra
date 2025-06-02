@@ -1,16 +1,27 @@
 package de.palabra.palabra.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface VocabDao {
-    @Query("SELECT * FROM vocab WHERE lektionId = :lektionId")
+    @Query("SELECT * FROM Vocab WHERE lektionId = :lektionId")
     suspend fun getVocabsForLektion(lektionId: Int): List<Vocab>
+
+    @Query("SELECT * FROM Vocab")
+    suspend fun getAllVocabs(): List<Vocab>
+
+    @Query("SELECT * FROM Vocab WHERE id = :id")
+    suspend fun getVocabById(id: Int): Vocab?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVocab(vocab: Vocab): Long
 
+    @Update
+    suspend fun updateVocab(vocab: Vocab)
+
     @Delete
     suspend fun deleteVocab(vocab: Vocab)
+
+    @Query("DELETE FROM Vocab WHERE lektionId = :lektionId")
+    suspend fun deleteVocabsByLektion(lektionId: Int)
 }
