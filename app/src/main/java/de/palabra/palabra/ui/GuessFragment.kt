@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import de.palabra.palabra.GuessData
+import de.palabra.palabra.VocabProvider
 import de.palabra.palabra.databinding.FragmentGuessBinding
 
 class GuessFragment : Fragment() {
     private var _binding: FragmentGuessBinding? = null
     private val binding get() = _binding!!
-    private lateinit var guess: GuessData
+    private lateinit var guess: VocabProvider.GuessData
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

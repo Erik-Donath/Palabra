@@ -3,11 +3,11 @@ package de.palabra.palabra.ui
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import de.palabra.palabra.IProvider
 import de.palabra.palabra.R
+import de.palabra.palabra.VocabProvider
 
 class LearnActivity : AppCompatActivity() {
-    lateinit var provider: IProvider
+    lateinit var provider: VocabProvider
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +21,8 @@ class LearnActivity : AppCompatActivity() {
             VocabListDialogFragment().show(supportFragmentManager, "vocabListDialog")
         }
 
-        provider = intent.getSerializableExtra(EXTRA_PROVIDER, IProvider::class.java)
-            ?: throw IllegalArgumentException("Provider must be passed to LearnActivity!")
+        provider = intent.getSerializableExtra(EXTRA_PROVIDER, VocabProvider::class.java)
+                ?: throw IllegalArgumentException("Provider must be passed to LearnActivity!")
     }
 
     fun finishSession() {

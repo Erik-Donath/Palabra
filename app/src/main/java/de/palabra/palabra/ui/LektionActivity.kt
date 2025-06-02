@@ -2,6 +2,7 @@ package de.palabra.palabra.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,8 @@ import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.databinding.ActivityLektionBinding
-import de.palabra.palabra.LektionProvider
+import de.palabra.palabra.LektionProviderFunction
+import de.palabra.palabra.VocabProvider
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -89,11 +91,15 @@ class LektionActivity : AppCompatActivity() {
 
     private fun startLearnActivity(lektionId: Int) {
         lifecycleScope.launch {
-            val provider = LektionProvider.create(this@LektionActivity, lektionId)
-            if (provider != null && provider.getGuessList().isNotEmpty()) {
+            val provider = VocabProvider(LektionProviderFunction(this@LektionActivity, lektionId))
+
+            if (provider.isNotEmpty()) {
                 val intent = Intent(this@LektionActivity, LearnActivity::class.java)
                 intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                 startActivity(intent)
+            } else {
+                // Handle empty state
+                Log.w("Lektion", "There are no vocab's registered to learn.")
             }
         }
     }

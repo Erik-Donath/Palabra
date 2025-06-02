@@ -11,8 +11,17 @@ class VocabListDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val binding = DialogVocabListBinding.inflate(LayoutInflater.from(requireContext()))
         val provider = (requireActivity() as LearnActivity).provider
-        val items = provider.getGuessList().map { "${it.word} - ${it.solutions[it.correctIndex]}" }
-        binding.vocabListView.adapter = VocabListAdapter(requireContext(), items)
+        val vocabsWithStatus = provider.getList()
+        val items = vocabsWithStatus.map { (vocab, answer, _) ->
+            val status = when (answer) {
+                true -> "✔"
+                false -> "✘"
+                null -> ""
+            }
+            "${vocab.word} - ${vocab.toWord} $status"
+        }
+        val statuses = vocabsWithStatus.map { it.second }
+        binding.vocabListView.adapter = VocabListAdapter(requireContext(), items, statuses)
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(binding.root)

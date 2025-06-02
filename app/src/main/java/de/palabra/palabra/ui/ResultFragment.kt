@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import de.palabra.palabra.R
 import de.palabra.palabra.databinding.FragmentResultBinding
+import kotlinx.coroutines.launch
 
 class ResultFragment : Fragment() {
     private var _binding: FragmentResultBinding? = null
@@ -27,6 +29,14 @@ class ResultFragment : Fragment() {
         binding.resultText.text = if (correct) getString(R.string.learn_correct) else getString(R.string.learn_wrong)
         binding.wordText.text = args.word
         binding.pickedOptionText.text = getString(R.string.learn_your_choice, args.solutions?.get(args.pickedIndex) ?: "")
+
+        val provider = (requireActivity() as LearnActivity).provider
+        lifecycleScope.launch {
+            val vocab = provider.findVocabByWord(args.word)
+            vocab?.let {
+                provider.submitResult(requireContext(), it, correct)
+            }
+        }
 
         binding.nextButton.setOnClickListener {
             findNavController().navigate(ResultFragmentDirections.actionResultToGuess())

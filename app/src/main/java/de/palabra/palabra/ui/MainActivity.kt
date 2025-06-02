@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import de.palabra.palabra.AllProvider
+import de.palabra.palabra.AllProviderFunction
 import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.R
-import de.palabra.palabra.SmartProvider
+import de.palabra.palabra.SmartProviderFunction
+import de.palabra.palabra.VocabProvider
 import de.palabra.palabra.db.LektionWithVocabs
 import kotlinx.coroutines.launch
 
@@ -36,15 +37,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LektionActivity::class.java))
         }
         findViewById<Button>(R.id.smartBtn).setOnClickListener {
-            val provider = SmartProvider()
-            val intent = Intent(this, LearnActivity::class.java)
-            intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
-            startActivity(intent)
+            lifecycleScope.launch {
+                val provider = VocabProvider(SmartProviderFunction(this@MainActivity))
+
+                if (provider.isNotEmpty()) {
+                    val intent = Intent(this@MainActivity, LearnActivity::class.java)
+                    intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
+                    startActivity(intent)
+                } else {
+                    // Handle empty state
+                    Log.w("Main", "There are no vocab's registered to learn.")
+                }
+            }
         }
         findViewById<Button>(R.id.allBtn).setOnClickListener {
             lifecycleScope.launch {
-                val provider = AllProvider.create(this@MainActivity)
-                if (provider != null && provider.getGuessList().isNotEmpty()) {
+                val provider = VocabProvider(AllProviderFunction(this@MainActivity))
+
+                if (provider.isNotEmpty()) {
                     val intent = Intent(this@MainActivity, LearnActivity::class.java)
                     intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                     startActivity(intent)

@@ -2,6 +2,7 @@ package de.palabra.palabra.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Lektion(
@@ -10,4 +11,4 @@ data class Lektion(
     val fromLangCode: String,
     val toLangCode: String,
     val description: String
-)
+): Serializable

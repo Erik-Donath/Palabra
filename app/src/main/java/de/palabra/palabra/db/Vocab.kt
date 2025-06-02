@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
     foreignKeys = [ForeignKey(
@@ -22,4 +23,4 @@ data class Vocab(
     val lektionId: Int,
     val correctCount: Int = 0,
     val wrongCount: Int = 0
-)
+) : Serializable
