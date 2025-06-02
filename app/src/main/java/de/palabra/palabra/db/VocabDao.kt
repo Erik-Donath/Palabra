@@ -24,4 +24,10 @@ interface VocabDao {
 
     @Query("DELETE FROM Vocab WHERE lektionId = :lektionId")
     suspend fun deleteVocabsByLektion(lektionId: Int)
+
+    @Query("UPDATE Vocab SET correctCount = correctCount + 1 WHERE id = :vocabId")
+    suspend fun incrementCorrectCount(vocabId: Int)
+
+    @Query("UPDATE Vocab SET wrongCount = wrongCount + 1 WHERE id = :vocabId")
+    suspend fun incrementWrongCount(vocabId: Int)
 }

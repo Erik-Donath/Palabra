@@ -13,7 +13,6 @@ fun createGuessData(
     correctSolution: String,
     allSolutions: Set<String>
 ): GuessData? {
-    // Remove correct word from distractors
     val distractors = allSolutions
         .filter { it != correctSolution }
         .shuffled()

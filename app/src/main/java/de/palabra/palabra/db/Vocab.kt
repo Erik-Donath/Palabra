@@ -19,5 +19,7 @@ data class Vocab(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val word: String,
     val toWord: String,
-    val lektionId: Int
+    val lektionId: Int,
+    val correctCount: Int = 0,
+    val wrongCount: Int = 0
 )
