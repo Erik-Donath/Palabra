@@ -17,7 +17,7 @@
 
         <ImageButton
             android:id="@+id/homeBtn"
-            android:backgroundTint="@color/midnight_green"
+            android:backgroundTint="?attr/colorPrimary"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/btn_rounded"
@@ -33,7 +33,7 @@
 
         <ImageButton
             android:id="@+id/listBtn"
-            android:backgroundTint="@color/midnight_green"
+            android:backgroundTint="?attr/colorPrimary"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/btn_rounded"

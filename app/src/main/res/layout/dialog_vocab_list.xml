@@ -15,7 +15,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="?android:textColorPrimary"/>
 
     <ListView
         android:id="@+id/vocabListView"
@@ -31,8 +32,8 @@
         android:layout_height="wrap_content"
         android:text="@string/close"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/midnight_green"
-        android:textColor="@color/onPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         app:tint="?attr/colorOnPrimary"
         />
 </LinearLayout>

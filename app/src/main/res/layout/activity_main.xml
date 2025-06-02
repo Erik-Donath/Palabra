@@ -14,8 +14,8 @@
         android:id="@+id/settingsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/midnight_green"
-        android:textColor="@color/onPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:text="@string/main_license"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
             app:strokeColor="@color/sage"
-            android:backgroundTint="@color/surface"
+            android:backgroundTint="?attr/colorSurface"
             >
 
             <LinearLayout
@@ -70,6 +70,7 @@
                     android:text="@string/score"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
                     android:background="@android:color/transparent" />
 
                 <Button
@@ -77,8 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
-                    android:textColor="@color/onPrimary"
-                    android:backgroundTint="@color/midnight_green"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorPrimary"
                     android:text="@string/main_lextions" />
 
                 <Button
@@ -86,16 +87,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
-                    android:backgroundTint="@color/midnight_green"
-                    android:textColor="@color/onPrimary"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:textColor="?attr/colorOnPrimary"
                     android:text="@string/main_smart" />
 
                 <Button
                     android:id="@+id/allBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/midnight_green"
-                    android:textColor="@color/onPrimary"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:textColor="?attr/colorOnPrimary"
                     android:text="@string/main_all" />
             </LinearLayout>
 

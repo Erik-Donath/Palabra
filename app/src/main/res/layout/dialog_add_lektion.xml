@@ -15,13 +15,15 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="?android:textColorPrimary"/>
 
     <EditText
         android:id="@+id/editTitle"
         android:hint="Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="?android:textColorPrimary"
         tools:ignore="HardcodedText" />
 
     <Spinner
@@ -49,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="?android:textColorPrimary"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -64,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            app:tint="?attr/colorOnPrimary"
+            android:textColor="?attr/colorPrimary"
             />
 
         <Button
@@ -74,7 +77,7 @@
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:tint="?attr/colorOnPrimary"
+            android:textColor="?attr/colorPrimary"
             />
     </LinearLayout>
 </LinearLayout>

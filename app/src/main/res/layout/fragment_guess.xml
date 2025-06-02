@@ -19,7 +19,7 @@
         android:layout_marginBottom="120dp"
         android:text="Word"
         tools:ignore="HardcodedText"
-        android:textColor="@color/onPrimary"
+        android:textColor="?android:textColorPrimary"
         />
 
     <!-- Answer options -->
@@ -30,8 +30,8 @@
         android:layout_marginBottom="24dp"
         android:text="Solution 1"
         tools:ignore="HardcodedText"
-        android:backgroundTint="@color/midnight_green"
-        android:textColor="@color/onPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         />
 
     <Button
@@ -41,8 +41,8 @@
         android:layout_marginBottom="24dp"
         android:text="Solution 2"
         tools:ignore="HardcodedText"
-        android:backgroundTint="@color/midnight_green"
-        android:textColor="@color/onPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         />
 
     <Button
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="Solution 3"
         tools:ignore="HardcodedText"
-        android:backgroundTint="@color/midnight_green"
-        android:textColor="@color/onPrimary"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         />
 </LinearLayout>

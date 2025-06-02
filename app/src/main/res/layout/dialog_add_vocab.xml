@@ -14,13 +14,15 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"/>
 
     <EditText
         android:id="@+id/editFromWord"
         android:hint="From Word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"
         tools:ignore="HardcodedText" />
 
     <EditText
@@ -29,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="?attr/colorOnSurface"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -44,8 +47,7 @@
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/onPrimary"
-            app:tint="?attr/colorOnPrimary"
+            android:textColor="?attr/colorPrimary"
             />
 
         <Button
@@ -55,8 +57,7 @@
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/onPrimary"
-            app:tint="?attr/colorOnPrimary"
+            android:textColor="?attr/colorPrimary"
             />
     </LinearLayout>
 </LinearLayout>

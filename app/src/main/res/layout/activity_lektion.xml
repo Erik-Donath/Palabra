@@ -27,8 +27,7 @@
                 android:contentDescription="@string/home"
                 android:src="@drawable/ic_home_24"
                 android:visibility="visible"
-                android:textColor="@color/onPrimary"
-                android:backgroundTint="@color/midnight_green"
+                android:backgroundTint="?attr/colorPrimary"
                 app:tint="?attr/colorOnPrimary" />
 
             <SearchView
@@ -47,8 +46,7 @@
                 android:background="@drawable/btn_rounded"
                 android:src="@drawable/ic_add"
                 android:contentDescription="@string/lektion_add_lektion"
-                android:textColor="@color/onPrimary"
-                android:backgroundTint="@color/midnight_green"
+                android:backgroundTint="?attr/colorPrimary"
                 app:tint="?attr/colorOnPrimary" />
         </LinearLayout>
 
