@@ -8,6 +8,23 @@ data class GuessData(
     val correctIndex: Int
 ) : Serializable
 
+fun createGuessData(
+    word: String,
+    correctSolution: String,
+    allSolutions: Set<String>
+): GuessData? {
+    // Remove correct word from distractors
+    val distractors = allSolutions
+        .filter { it != correctSolution }
+        .shuffled()
+        .take(2)
+        .toMutableList()
+
+    val insertIndex = (0..2).random()
+    distractors.add(insertIndex, correctSolution)
+    return GuessData(word, distractors, insertIndex)
+}
+
 interface IProvider : Serializable {
     fun getGuessList(): List<GuessData>
     fun getNextGuess(): GuessData?

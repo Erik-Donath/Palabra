@@ -20,16 +20,8 @@ class LektionProvider private constructor(
         require(vocabs.isNotEmpty()) { "LektionProvider needs at least one vocab" }
 
         val allSolutions = vocabs.map { it.toWord }.toSet()
-        data = vocabs.map { vocab ->
-            val correctSolution = vocab.toWord
-            val distractors = allSolutions
-                .filter { it != correctSolution }
-                .shuffled()
-                .take(3)
-                .toMutableList()
-            val insertIndex = (0..distractors.size).random()
-            distractors.add(insertIndex, correctSolution)
-            GuessData(vocab.word, distractors, insertIndex)
+        data = vocabs.mapNotNull { vocab ->
+            createGuessData(vocab.word, vocab.toWord, allSolutions)
         }
     }
 

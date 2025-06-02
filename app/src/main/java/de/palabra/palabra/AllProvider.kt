@@ -17,16 +17,8 @@ class AllProvider private constructor(
     init {
         require(allVocabs.isNotEmpty()) { "AllProvider needs at least one vocab." }
         val allSolutions = allVocabs.map { it.toWord }.toSet()
-        data = allVocabs.map { vocab ->
-            val correctSolution = vocab.toWord
-            val distractors = allSolutions
-                .filter { it != correctSolution }
-                .shuffled()
-                .take(3)
-                .toMutableList()
-            val insertIndex = (0..distractors.size).random()
-            distractors.add(insertIndex, correctSolution)
-            GuessData(vocab.word, distractors, insertIndex)
+        data = allVocabs.mapNotNull { vocab ->
+            createGuessData(vocab.word, vocab.toWord, allSolutions)
         }
     }
 
