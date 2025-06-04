@@ -6,9 +6,6 @@ import androidx.core.content.FileProvider
 import com.google.gson.Gson
 import de.palabra.palabra.db.LektionWithVocabs
 import java.io.File
-import java.io.FileWriter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 data class ExportVocab(
     val word: String,

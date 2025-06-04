@@ -26,6 +26,7 @@
     <string name="lektion_play">Start</string>
     <string name="lektion_flag">Flage</string>
     <string name="lektion_export_lektion">Exportieren</string>
+    <string name="lektion_import_lektion">Importieren</string>
 
     <!-- Learn Activity !-->
     <string name="learn_correct">Richtig!</string>

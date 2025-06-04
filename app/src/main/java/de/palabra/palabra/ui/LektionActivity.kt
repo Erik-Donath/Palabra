@@ -1,9 +1,12 @@
 package de.palabra.palabra.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +19,7 @@ import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.VocabProvider
 import de.palabra.palabra.db.PalabraDatabase
 import de.palabra.palabra.util.ExportUtil
+import de.palabra.palabra.util.ImportUtil
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -24,6 +28,17 @@ class LektionActivity : AppCompatActivity() {
         LektionViewModel.Factory((application as PalabraApplication).repository)
     }
     private lateinit var adapter: LektionAdapter
+
+    private val importLektionLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri: Uri? ->
+        uri?.let { importUri ->
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                ImportUtil.importLektionFromUri(this@LektionActivity, importUri, repo)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +69,10 @@ class LektionActivity : AppCompatActivity() {
 
         binding.homeBtn.setOnClickListener { finish() }
         binding.addLektionBtn.setOnClickListener { showAddLektionDialog() }
+        binding.importLektionBtn.setOnClickListener {
+            // Only allow .palabra files
+            importLektionLauncher.launch(arrayOf("application/*"))
+        }
 
         // Observe LiveData bridged from Flow for REAL updates
         viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
@@ -103,6 +122,7 @@ class LektionActivity : AppCompatActivity() {
             } else {
                 // Handle empty state
                 Log.w("Lektion", "There are no vocab's registered to learn.")
+                Toast.makeText(this@LektionActivity, "Keine Vokabeln zum Lernen vorhanden.", Toast.LENGTH_SHORT).show()
             }
         }
     }
