@@ -146,8 +146,7 @@ class LektionActivity : AppCompatActivity() {
             val repo = (application as PalabraApplication).repository
             val lektionWithVocabs = repo.getLektionWithVocabs(lektionId)
             if (lektionWithVocabs != null) {
-                val dbVersion = PalabraDatabase.getInstance(this@LektionActivity).openHelper.readableDatabase.version
-                ExportUtil.exportAndShareLektion(this@LektionActivity, lektionWithVocabs, dbVersion)
+                ExportUtil.exportAndShareLektion(this@LektionActivity, lektionWithVocabs)
             }
         }
     }
