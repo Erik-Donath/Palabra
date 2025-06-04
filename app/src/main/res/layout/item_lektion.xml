@@ -97,6 +97,16 @@
                     android:gravity="end">
 
                     <ImageButton
+                        android:id="@+id/exportLektionBtn"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/btn_rounded"
+                        android:backgroundTint="?attr/colorPrimary"
+                        android:src="@drawable/ic_export"
+                        android:contentDescription="@string/lektion_export_lektion"
+                        android:layout_marginEnd="8dp"
+                        app:tint="?attr/colorOnPrimary" />
+                    <ImageButton
                         android:id="@+id/addVocabBtn"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
@@ -113,6 +123,7 @@
                         android:background="@drawable/btn_red"
                         android:src="@drawable/ic_delete"
                         android:contentDescription="@string/lektion_delete_lektion"
+                        android:layout_marginEnd="8dp"
                         app:tint="?attr/colorOnPrimary" />
                 </LinearLayout>
 

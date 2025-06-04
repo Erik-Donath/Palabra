@@ -1,9 +1,12 @@
 package de.palabra.palabra.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +17,9 @@ import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.databinding.ActivityLektionBinding
 import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.VocabProvider
+import de.palabra.palabra.db.PalabraDatabase
+import de.palabra.palabra.util.ExportUtil
+import de.palabra.palabra.util.ImportUtil
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -23,17 +29,43 @@ class LektionActivity : AppCompatActivity() {
     }
     private lateinit var adapter: LektionAdapter
 
+    private val importLektionLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri: Uri? ->
+        uri?.let { importUri ->
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                val success = ImportUtil.importLektionFromUri(this@LektionActivity, importUri, repo)
+                if (success) {
+                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLektionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
+            val uri = intent.data!!
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                val success = ImportUtil.importLektionFromUri(this@LektionActivity, uri, repo)
+                if (success) {
+                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         adapter = LektionAdapter(
             onLektionDelete = { lektion -> viewModel.deleteLektion(lektion) },
             onVocabDelete = { vocab -> viewModel.deleteVocab(vocab) },
             onLektionExpand = { lektionId -> viewModel.toggleExpansion(lektionId) },
             onAddVocab = { lektionId -> showAddVocabDialog(lektionId) },
-            onStartLearn = { lektionId -> startLearnActivity(lektionId)}
+            onStartLearn = { lektionId -> startLearnActivity(lektionId)},
+            onExportLektion = { lektionId -> exportLektion(lektionId) }
         )
         binding.lektionRecycler.layoutManager = LinearLayoutManager(this)
         binding.lektionRecycler.adapter = adapter
@@ -51,6 +83,10 @@ class LektionActivity : AppCompatActivity() {
 
         binding.homeBtn.setOnClickListener { finish() }
         binding.addLektionBtn.setOnClickListener { showAddLektionDialog() }
+        binding.importLektionBtn.setOnClickListener {
+            // Only allow .palabra files
+            importLektionLauncher.launch(arrayOf("application/*"))
+        }
 
         // Observe LiveData bridged from Flow for REAL updates
         viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
@@ -100,6 +136,18 @@ class LektionActivity : AppCompatActivity() {
             } else {
                 // Handle empty state
                 Log.w("Lektion", "There are no vocab's registered to learn.")
+                Toast.makeText(this@LektionActivity, "Keine Vokabeln zum Lernen vorhanden.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun exportLektion(lektionId: Int) {
+        lifecycleScope.launch {
+            val repo = (application as PalabraApplication).repository
+            val lektionWithVocabs = repo.getLektionWithVocabs(lektionId)
+            if (lektionWithVocabs != null) {
+                val dbVersion = PalabraDatabase.getInstance(this@LektionActivity).openHelper.readableDatabase.version
+                ExportUtil.exportAndShareLektion(this@LektionActivity, lektionWithVocabs, dbVersion)
             }
         }
     }

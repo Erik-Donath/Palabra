@@ -39,10 +39,21 @@
                 android:queryHint="Lektion suchen" />
 
             <ImageButton
+                android:id="@+id/importLektionBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_rounded"
+                android:backgroundTint="?attr/colorPrimary"
+                android:src="@drawable/ic_import"
+                android:contentDescription="@string/lektion_import_lektion"
+                android:layout_marginStart="4dp"
+                app:tint="?attr/colorOnPrimary" />
+
+            <ImageButton
                 android:id="@+id/addLektionBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
                 android:background="@drawable/btn_rounded"
                 android:src="@drawable/ic_add"
                 android:contentDescription="@string/lektion_add_lektion"

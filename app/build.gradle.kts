@@ -80,10 +80,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation (libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
+
+    implementation(libs.gson)
 }
 
 
 kapt {
     correctErrorTypes = true
 }
-
