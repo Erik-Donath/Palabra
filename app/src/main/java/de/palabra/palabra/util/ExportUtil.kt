@@ -7,35 +7,20 @@ import com.google.gson.Gson
 import de.palabra.palabra.db.LektionWithVocabs
 import java.io.File
 
-data class ExportVocab(
-    val word: String,
-    val toWord: String,
-    val correctCount: Int,
-    val wrongCount: Int
-)
-
-data class ExportLektion(
-    val dbVersion: Int,
-    val title: String,
-    val fromLangCode: String,
-    val toLangCode: String,
-    val description: String?,
-    val vocabs: List<ExportVocab>
-)
-
 object ExportUtil {
-    fun exportAndShareLektion(context: Context, lektionWithVocabs: LektionWithVocabs, dbVersion: Int) {
+    const val EXPORT_FILE_FORMAT = FileFormatV1.FORMAT_VERSION
+
+    fun exportAndShareLektion(context: Context, lektionWithVocabs: LektionWithVocabs) {
         val lektion = lektionWithVocabs.lektion
         val vocabs = lektionWithVocabs.vocabs.map {
-            ExportVocab(
+            FileFormatV1.Vocab(
                 word = it.word,
                 toWord = it.toWord,
                 correctCount = it.correctCount,
                 wrongCount = it.wrongCount
             )
         }
-        val exportLektion = ExportLektion(
-            dbVersion = dbVersion,
+        val exportLektion = FileFormatV1.Lektion(
             title = lektion.title,
             fromLangCode = lektion.fromLangCode,
             toLangCode = lektion.toLangCode,
