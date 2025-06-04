@@ -35,7 +35,10 @@ class LektionActivity : AppCompatActivity() {
         uri?.let { importUri ->
             lifecycleScope.launch {
                 val repo = (application as PalabraApplication).repository
-                ImportUtil.importLektionFromUri(this@LektionActivity, importUri, repo)
+                val success = ImportUtil.importLektionFromUri(this@LektionActivity, importUri, repo)
+                if (success) {
+                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -44,6 +47,17 @@ class LektionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLektionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
+            val uri = intent.data!!
+            lifecycleScope.launch {
+                val repo = (application as PalabraApplication).repository
+                val success = ImportUtil.importLektionFromUri(this@LektionActivity, uri, repo)
+                if (success) {
+                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         adapter = LektionAdapter(
             onLektionDelete = { lektion -> viewModel.deleteLektion(lektion) },

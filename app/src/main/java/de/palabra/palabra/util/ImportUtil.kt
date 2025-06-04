@@ -1,9 +1,7 @@
 package de.palabra.palabra.util
 
-import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
-import android.provider.OpenableColumns
 import android.widget.Toast
 import com.google.gson.Gson
 import de.palabra.palabra.db.Lektion
@@ -37,12 +35,6 @@ object ImportUtil {
     ): Boolean = withContext(Dispatchers.IO) {
         try {
             val contentResolver = context.contentResolver
-            if (!isPalabraFile(contentResolver, uri)) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Bitte wähle eine gültige .palabra Datei aus.", Toast.LENGTH_LONG).show()
-                }
-                return@withContext false
-            }
 
             val json = contentResolver.openInputStream(uri)?.bufferedReader()?.use { it.readText() }
                 ?: return@withContext false
@@ -53,7 +45,7 @@ object ImportUtil {
 
             if (importLektion.dbVersion != dbVersion) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Datenbank-Version stimmt nicht überein. Import nicht möglich.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Version stimmt nicht überein. Import nicht möglich.", Toast.LENGTH_LONG).show()
                 }
                 return@withContext false
             }
@@ -91,19 +83,5 @@ object ImportUtil {
             }
             false
         }
-    }
-
-    private fun isPalabraFile(contentResolver: ContentResolver, uri: Uri): Boolean {
-        val fileName = getFileNameFromUri(contentResolver, uri)
-        return fileName != null && fileName.endsWith(".palabra", ignoreCase = true)
-    }
-
-    private fun getFileNameFromUri(contentResolver: ContentResolver, uri: Uri): String? {
-        val cursor = contentResolver.query(uri, null, null, null, null)
-        val nameIndex = cursor?.getColumnIndex(OpenableColumns.DISPLAY_NAME) ?: -1
-        cursor?.moveToFirst()
-        val name = if (nameIndex >= 0) cursor?.getString(nameIndex) else null
-        cursor?.close()
-        return name
     }
 }
