@@ -74,6 +74,10 @@ class LektionAdapter(
                 val vocabBinding = ItemVocabBinding.inflate(LayoutInflater.from(binding.vocabList.context), binding.vocabList, false)
                 vocabBinding.wordText.text = vocab.word
                 vocabBinding.toWordText.text = vocab.toWord
+
+                vocabBinding.correctCountText.text = "${vocab.correctCount}"
+                vocabBinding.wrongCountText.text = "${vocab.wrongCount}"
+
                 vocabBinding.deleteVocabBtn.setOnClickListener { onVocabDelete(vocab) }
                 binding.vocabList.addView(vocabBinding.root)
             }

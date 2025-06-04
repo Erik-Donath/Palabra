@@ -32,6 +32,28 @@
             android:textColor="?android:textColorPrimary"
             tools:ignore="HardcodedText" />
 
+        <TextView
+            android:id="@+id/correctCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#388E3C"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="4dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/wrongCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#D32F2F"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            tools:ignore="HardcodedText" />
+
         <ImageButton
             android:id="@+id/deleteVocabBtn"
             android:layout_width="32dp"
