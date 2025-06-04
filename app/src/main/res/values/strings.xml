@@ -45,6 +45,7 @@
     <string name="lektion_delete_vocab">Delete Vocab</string>
     <string name="lektion_play">Play</string>
     <string name="lektion_flag">Flag</string>
+    <string name="lektion_export_lektion">Export</string>
 
     <!-- Learn Activity !-->
     <string name="learn_correct">Correct!</string>
