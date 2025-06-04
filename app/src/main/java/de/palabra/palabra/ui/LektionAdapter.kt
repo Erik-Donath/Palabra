@@ -18,7 +18,8 @@ class LektionAdapter(
     private val onVocabDelete: (Vocab) -> Unit,
     private val onLektionExpand: (Int) -> Unit,
     private val onAddVocab: (Int) -> Unit,
-    private val onStartLearn: (Int) -> Unit
+    private val onStartLearn: (Int) -> Unit,
+    private val onExportLektion: (Int) -> Unit
 ) : ListAdapter<LektionWithVocabs, LektionAdapter.LektionViewHolder>(DIFF) {
 
     companion object {
@@ -58,6 +59,11 @@ class LektionAdapter(
             // Delete Lektion button
             binding.deleteLektionBtn.setOnClickListener {
                 onLektionDelete(lektion)
+            }
+
+            // Export Lektion button
+            binding.exportLektionBtn.setOnClickListener {
+                onExportLektion(lektion.id)
             }
 
             // Expand/collapse

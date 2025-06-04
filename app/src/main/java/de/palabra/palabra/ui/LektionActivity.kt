@@ -14,6 +14,8 @@ import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.databinding.ActivityLektionBinding
 import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.VocabProvider
+import de.palabra.palabra.db.PalabraDatabase
+import de.palabra.palabra.util.ExportUtil
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -33,7 +35,8 @@ class LektionActivity : AppCompatActivity() {
             onVocabDelete = { vocab -> viewModel.deleteVocab(vocab) },
             onLektionExpand = { lektionId -> viewModel.toggleExpansion(lektionId) },
             onAddVocab = { lektionId -> showAddVocabDialog(lektionId) },
-            onStartLearn = { lektionId -> startLearnActivity(lektionId)}
+            onStartLearn = { lektionId -> startLearnActivity(lektionId)},
+            onExportLektion = { lektionId -> exportLektion(lektionId) }
         )
         binding.lektionRecycler.layoutManager = LinearLayoutManager(this)
         binding.lektionRecycler.adapter = adapter
@@ -100,6 +103,17 @@ class LektionActivity : AppCompatActivity() {
             } else {
                 // Handle empty state
                 Log.w("Lektion", "There are no vocab's registered to learn.")
+            }
+        }
+    }
+
+    private fun exportLektion(lektionId: Int) {
+        lifecycleScope.launch {
+            val repo = (application as PalabraApplication).repository
+            val lektionWithVocabs = repo.getLektionWithVocabs(lektionId)
+            if (lektionWithVocabs != null) {
+                val dbVersion = PalabraDatabase.getInstance(this@LektionActivity).openHelper.readableDatabase.version
+                ExportUtil.exportAndShareLektion(this@LektionActivity, lektionWithVocabs, dbVersion)
             }
         }
     }

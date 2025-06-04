@@ -114,6 +114,13 @@
                         android:src="@drawable/ic_delete"
                         android:contentDescription="@string/lektion_delete_lektion"
                         app:tint="?attr/colorOnPrimary" />
+
+                    <Button
+                        android:id="@+id/exportLektionBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Export"
+                        android:layout_gravity="end"/>
                 </LinearLayout>
 
                 <LinearLayout
