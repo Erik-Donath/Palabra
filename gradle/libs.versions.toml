@@ -1,15 +1,14 @@
 [versions]
 agp = "8.10.1"
 daggerCompiler = "2.51.1"
-fragmentKtx = "1.8.6"
+fragmentKtx = "1.8.8"
 googleMaterial = "1.12.0"
 gson = "2.11.0"
 hiltAndroid = "2.48"
-kotlin = "2.1.20"
-ksp = "2.1.20-1.0.24"
+kotlin = "2.1.21"
 coreKtx = "1.16.0"
 appcompat = "1.7.1"
-kotlinStdlib = "2.1.20"
+kotlinStdlib = "2.1.21"
 lifecycleViewmodelKtx = "2.9.1"
 constraintlayout = "2.2.1"
 navigationFragmentKtx = "2.9.0"
@@ -29,7 +28,6 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinStdlib" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinStdlib" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -41,4 +39,3 @@ material-v170 = { module = "com.google.android.material:material", version.ref =
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

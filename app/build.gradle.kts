@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp") version "2.1.21-2.0.1"
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -16,7 +17,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -73,7 +73,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation (libs.androidx.activity.ktx)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
 
     implementation(libs.gson)
