@@ -100,6 +100,11 @@ class LektionActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshData()
+    }
+
     private fun showAddLektionDialog() {
         AddLektionDialogFragment { title, fromLang, toLang, description ->
             lifecycleScope.launch {
@@ -118,16 +123,13 @@ class LektionActivity : AppCompatActivity() {
 
     private fun showAddVocabDialog(lektionId: Int) {
         AddVocabDialogFragment { fromWord, toWord ->
-            lifecycleScope.launch {
-                val repo = (application as PalabraApplication).repository
-                repo.insertVocab(
-                    Vocab(
-                        lektionId = lektionId,
-                        word = fromWord,
-                        toWord = toWord
-                    )
+            viewModel.addVocab(
+                Vocab(
+                    lektionId = lektionId,
+                    word = fromWord,
+                    toWord = toWord
                 )
-            }
+            )
         }.show(supportFragmentManager, "AddVocabDialog")
     }
 

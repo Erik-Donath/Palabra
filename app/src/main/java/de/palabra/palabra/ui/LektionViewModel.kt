@@ -71,6 +71,25 @@ class LektionViewModel(private val repository: Repository) : ViewModel() {
     fun deleteVocab(vocab: Vocab) {
         viewModelScope.launch {
             repository.deleteVocab(vocab)
+            if (isExpanded(vocab.lektionId)) {
+                loadVocabsForLektion(vocab.lektionId)
+            }
+        }
+    }
+
+    fun addVocab(vocab: Vocab) {
+        viewModelScope.launch {
+            repository.insertVocab(vocab)
+            if (isExpanded(vocab.lektionId)) {
+                loadVocabsForLektion(vocab.lektionId)
+            }
+        }
+    }
+
+    fun refreshData() {
+        val expandedIds = _expandedLektionIds.value.orEmpty()
+        expandedIds.forEach { lektionId ->
+            loadVocabsForLektion(lektionId)
         }
     }
 
