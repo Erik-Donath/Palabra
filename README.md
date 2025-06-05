@@ -2,7 +2,7 @@
 
 **Palabra** is an open-source vocabulary learning app built with Kotlin for Android devices. Designed for learners at all levels, Palabra offers an efficient, intuitive, and mobile-first approach to expanding your language skills. With its customizable vocabulary lists, smart review algorithms, and clear progress tracking, Palabra helps you master new words and phrases with ease.
 
-[➡️ Download the latest release (Alpha 0.5)](https://github.com/Erik-Donath/Palabra/releases/tag/0.5)
+[➡️ Download the latest release (Alpha 1.0)](https://github.com/Erik-Donath/Palabra/releases/tag/1.0)
 
 ---
 
@@ -47,14 +47,8 @@ To run Palabra locally:
    - Click the **Run** button in Android Studio.
 
 4. **Or Download APK**
-   - Get the latest APK from the [Alpha 0.5 Release page](https://github.com/Erik-Donath/Palabra/releases/tag/0.5).
+   - Get the latest APK from the [1.0 Release page](https://github.com/Erik-Donath/Palabra/releases/tag/1.0).
    - Install it on your device (you may need to allow installation from unknown sources).
-
----
-
-## 🚧 Alpha Disclaimer
-
-This is a pre-release (**Alpha 0.5**) version. Features are subject to change, and you may encounter bugs or incomplete functionality. Please help improve Palabra by reporting issues and sharing your suggestions!
 
 ---
 
