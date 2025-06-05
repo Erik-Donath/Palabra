@@ -4,24 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import de.palabra.palabra.AllProviderFunction
-import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.R
 import de.palabra.palabra.SmartProviderFunction
 import de.palabra.palabra.VocabProvider
-import de.palabra.palabra.db.LektionWithVocabs
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Android Integration Stuff
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.settingsBtn).setOnClickListener {
-            startActivity(Intent(this, LicensActivity::class.java))
+            startActivity(Intent(this, LicenseActivity::class.java))
         }
         findViewById<Button>(R.id.lektionBtn).setOnClickListener {
             startActivity(Intent(this, LektionActivity::class.java))
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                     startActivity(intent)
                 } else {
-                    // Handle empty state
+                    Toast.makeText(this@MainActivity, "Keine Vokabeln um zu lernen", Toast.LENGTH_LONG).show()
                     Log.w("Main", "There are no vocab's registered to learn.")
                 }
             }
@@ -59,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                     startActivity(intent)
                 } else {
-                    // Handle empty state
+                    Toast.makeText(this@MainActivity, "Keine Vokabeln um zu lernen", Toast.LENGTH_LONG).show()
                     Log.w("Main", "There are no vocab's registered to learn.")
                 }
             }

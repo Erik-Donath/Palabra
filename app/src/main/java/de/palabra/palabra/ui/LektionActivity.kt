@@ -87,9 +87,16 @@ class LektionActivity : AppCompatActivity() {
             importLektionLauncher.launch(arrayOf("application/*"))
         }
 
-        // Observe LiveData bridged from Flow for REAL updates
-        viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
-            adapter.submitList(lektionen)
+        viewModel.filteredLektionen.observe(this) { lektionen ->
+            adapter.submitLektionen(lektionen)
+        }
+
+        viewModel.expandedLektionIds.observe(this) { expandedIds ->
+            adapter.updateExpandedIds(expandedIds)
+        }
+
+        viewModel.lektionVocabs.observe(this) { vocabsMap ->
+            adapter.updateVocabs(vocabsMap)
         }
     }
 

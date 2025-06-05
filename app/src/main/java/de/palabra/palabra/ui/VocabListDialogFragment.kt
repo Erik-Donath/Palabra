@@ -11,7 +11,7 @@ class VocabListDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val binding = DialogVocabListBinding.inflate(LayoutInflater.from(requireContext()))
         val provider = (requireActivity() as LearnActivity).provider
-        val vocabsWithStatus = provider.getList()
+        val vocabsWithStatus = provider.getProgressList()
         val items = vocabsWithStatus.map { (vocab, answer, _) ->
             val status = when (answer) {
                 true -> "✔"

@@ -14,6 +14,9 @@ class Repository(context: Context) {
     suspend fun getAllLektionenWithVocabs(): List<LektionWithVocabs> =
         lektionDao.getAllLektionenWithVocabs()
 
+    fun getAllLektionenFlow(): Flow<List<Lektion>> =
+        lektionDao.getAllLektionenFlow()
+
     suspend fun getLektionWithVocabs(lektionId: Int): LektionWithVocabs? =
         lektionDao.getLektionWithVocabs(lektionId)
 

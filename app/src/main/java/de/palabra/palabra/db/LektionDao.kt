@@ -20,6 +20,9 @@ interface LektionDao {
     @Query("SELECT * FROM Lektion ORDER BY title")
     suspend fun getAllLektionen(): List<Lektion>
 
+    @Query("SELECT * FROM Lektion ORDER BY title")
+    fun getAllLektionenFlow(): Flow<List<Lektion>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLektion(lektion: Lektion): Long
 
