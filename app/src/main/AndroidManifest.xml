@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LicensActivity"
+            android:name=".ui.LicenseActivity"
             android:exported="false"
             android:launchMode="singleTop" />
         <activity
