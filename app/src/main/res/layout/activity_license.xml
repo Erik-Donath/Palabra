@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorBackground"
-    tools:context=".ui.LicensActivity">
+    tools:context=".ui.LicenseActivity">
 
     <TextView
         android:id="@+id/textView"

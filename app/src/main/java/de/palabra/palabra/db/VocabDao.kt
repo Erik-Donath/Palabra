@@ -30,4 +30,10 @@ interface VocabDao {
 
     @Query("UPDATE Vocab SET wrongCount = wrongCount + 1 WHERE id = :vocabId")
     suspend fun incrementWrongCount(vocabId: Int)
+
+    @Query("SELECT SUM(correctCount) FROM Vocab")
+    suspend fun getTotalCorrectCount(): Int?
+
+    @Query("SELECT SUM(wrongCount) FROM Vocab")
+    suspend fun getTotalWrongCount(): Int?
 }

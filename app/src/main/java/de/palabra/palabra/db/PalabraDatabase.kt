@@ -64,7 +64,7 @@ abstract class PalabraDatabase : RoomDatabase() {
                 "palabra.db"
             )
                 .addMigrations(MIGRATION_1_2)
-                //.fallbackToDestructiveMigration(true)
+                .fallbackToDestructiveMigration(true)
                 .build()
     }
 }

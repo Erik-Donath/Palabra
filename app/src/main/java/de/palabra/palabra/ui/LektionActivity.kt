@@ -87,10 +87,22 @@ class LektionActivity : AppCompatActivity() {
             importLektionLauncher.launch(arrayOf("application/*"))
         }
 
-        // Observe LiveData bridged from Flow for REAL updates
-        viewModel.filteredLektionWithVocabs.observe(this) { lektionen ->
-            adapter.submitList(lektionen)
+        viewModel.filteredLektionen.observe(this) { lektionen ->
+            adapter.submitLektionen(lektionen)
         }
+
+        viewModel.expandedLektionIds.observe(this) { expandedIds ->
+            adapter.updateExpandedIds(expandedIds)
+        }
+
+        viewModel.lektionVocabs.observe(this) { vocabsMap ->
+            adapter.updateVocabs(vocabsMap)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshData()
     }
 
     private fun showAddLektionDialog() {
@@ -111,16 +123,13 @@ class LektionActivity : AppCompatActivity() {
 
     private fun showAddVocabDialog(lektionId: Int) {
         AddVocabDialogFragment { fromWord, toWord ->
-            lifecycleScope.launch {
-                val repo = (application as PalabraApplication).repository
-                repo.insertVocab(
-                    Vocab(
-                        lektionId = lektionId,
-                        word = fromWord,
-                        toWord = toWord
-                    )
+            viewModel.addVocab(
+                Vocab(
+                    lektionId = lektionId,
+                    word = fromWord,
+                    toWord = toWord
                 )
-            }
+            )
         }.show(supportFragmentManager, "AddVocabDialog")
     }
 

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import de.palabra.palabra.databinding.ItemLektionBinding
 import de.palabra.palabra.databinding.ItemVocabBinding
 import de.palabra.palabra.db.Lektion
-import de.palabra.palabra.db.LektionWithVocabs
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.util.LanguageUtil
 
@@ -20,13 +19,30 @@ class LektionAdapter(
     private val onAddVocab: (Int) -> Unit,
     private val onStartLearn: (Int) -> Unit,
     private val onExportLektion: (Int) -> Unit
-) : ListAdapter<LektionWithVocabs, LektionAdapter.LektionViewHolder>(DIFF) {
+) : ListAdapter<Lektion, LektionAdapter.LektionViewHolder>(DIFF) {
+
+    private var expandedIds: Set<Int> = emptySet()
+    private var vocabsMap: Map<Int, List<Vocab>> = emptyMap()
 
     companion object {
-        val DIFF = object : DiffUtil.ItemCallback<LektionWithVocabs>() {
-            override fun areItemsTheSame(a: LektionWithVocabs, b: LektionWithVocabs) = a.lektion.id == b.lektion.id
-            override fun areContentsTheSame(a: LektionWithVocabs, b: LektionWithVocabs) = a == b
+        val DIFF = object : DiffUtil.ItemCallback<Lektion>() {
+            override fun areItemsTheSame(a: Lektion, b: Lektion) = a.id == b.id
+            override fun areContentsTheSame(a: Lektion, b: Lektion) = a == b
         }
+    }
+
+    fun submitLektionen(lektionen: List<Lektion>) {
+        submitList(lektionen)
+    }
+
+    fun updateExpandedIds(expandedIds: Set<Int>) {
+        this.expandedIds = expandedIds
+        notifyDataSetChanged()
+    }
+
+    fun updateVocabs(vocabsMap: Map<Int, List<Vocab>>) {
+        this.vocabsMap = vocabsMap
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LektionViewHolder {
@@ -39,53 +55,49 @@ class LektionAdapter(
     }
 
     inner class LektionViewHolder(private val binding: ItemLektionBinding) : RecyclerView.ViewHolder(binding.root) {
-        private var expanded: Boolean = false
-        fun bind(item: LektionWithVocabs) {
-            val lektion = item.lektion
+        fun bind(lektion: Lektion) {
             binding.titleText.text = lektion.title
             binding.languagesText.text = "${lektion.fromLangCode} → ${lektion.toLangCode}"
             binding.descriptionText.text = lektion.description
 
             binding.flagImage.setImageResource(LanguageUtil.getFlagFromCode(lektion.toLangCode))
 
-            // Play button (right)
             binding.playBtn.setOnClickListener {
                 onStartLearn(lektion.id)
             }
-            // Add Vocab button
             binding.addVocabBtn.setOnClickListener {
                 onAddVocab(lektion.id)
             }
-            // Delete Lektion button
             binding.deleteLektionBtn.setOnClickListener {
                 onLektionDelete(lektion)
             }
-
-            // Export Lektion button
             binding.exportLektionBtn.setOnClickListener {
                 onExportLektion(lektion.id)
             }
 
-            // Expand/collapse
+            val isExpanded = expandedIds.contains(lektion.id)
+            binding.expansionLayout.isVisible = isExpanded
+
             binding.lektionCard.setOnClickListener {
-                expanded = !expanded
-                binding.expansionLayout.isVisible = expanded
                 onLektionExpand(lektion.id)
             }
 
-            // Expansion
-            binding.expansionLayout.isVisible = expanded
-            binding.vocabList.removeAllViews()
-            item.vocabs.forEach { vocab ->
-                val vocabBinding = ItemVocabBinding.inflate(LayoutInflater.from(binding.vocabList.context), binding.vocabList, false)
-                vocabBinding.wordText.text = vocab.word
-                vocabBinding.toWordText.text = vocab.toWord
-
-                vocabBinding.correctCountText.text = "${vocab.correctCount}"
-                vocabBinding.wrongCountText.text = "${vocab.wrongCount}"
-
-                vocabBinding.deleteVocabBtn.setOnClickListener { onVocabDelete(vocab) }
-                binding.vocabList.addView(vocabBinding.root)
+            if (isExpanded) {
+                binding.vocabList.removeAllViews()
+                val vocabs = vocabsMap[lektion.id].orEmpty()
+                vocabs.forEach { vocab ->
+                    val vocabBinding = ItemVocabBinding.inflate(
+                        LayoutInflater.from(binding.vocabList.context), 
+                        binding.vocabList, 
+                        false
+                    )
+                    vocabBinding.wordText.text = vocab.word
+                    vocabBinding.toWordText.text = vocab.toWord
+                    vocabBinding.correctCountText.text = "${vocab.correctCount}"
+                    vocabBinding.wrongCountText.text = "${vocab.wrongCount}"
+                    vocabBinding.deleteVocabBtn.setOnClickListener { onVocabDelete(vocab) }
+                    binding.vocabList.addView(vocabBinding.root)
+                }
             }
         }
     }
