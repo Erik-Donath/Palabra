@@ -33,4 +33,7 @@ class Repository(context: Context) {
     suspend fun updateVocab(vocab: Vocab) = vocabDao.updateVocab(vocab)
     suspend fun deleteVocab(vocab: Vocab) = vocabDao.deleteVocab(vocab)
     suspend fun deleteVocabsByLektion(lektionId: Int) = vocabDao.deleteVocabsByLektion(lektionId)
+    
+    suspend fun getTotalCorrectCount(): Int = vocabDao.getTotalCorrectCount() ?: 0
+    suspend fun getTotalWrongCount(): Int = vocabDao.getTotalWrongCount() ?: 0
 }
