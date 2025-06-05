@@ -11,13 +11,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.PalabraApplication
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.databinding.ActivityLektionBinding
-import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.VocabProvider
-import de.palabra.palabra.db.PalabraDatabase
 import de.palabra.palabra.util.ExportUtil
 import de.palabra.palabra.util.ImportUtil
 import kotlinx.coroutines.launch

@@ -22,7 +22,7 @@ class LearnActivity : AppCompatActivity() {
         }
 
         provider = intent.getSerializableExtra(EXTRA_PROVIDER, VocabProvider::class.java)
-                ?: throw IllegalArgumentException("Provider must be passed to LearnActivity!")
+            ?: throw IllegalArgumentException("Provider must be passed to LearnActivity!")
     }
 
     fun finishSession() {

@@ -32,9 +32,9 @@ class ResultFragment : Fragment() {
 
         val provider = (requireActivity() as LearnActivity).provider
         lifecycleScope.launch {
-            val vocab = provider.findVocabByWord(args.word)
+            val vocab = provider.getVocabById(args.vocabId)
             vocab?.let {
-                provider.submitResult(requireContext(), it, correct)
+                provider.submitResult(requireContext(), it.id, correct)
             }
         }
 

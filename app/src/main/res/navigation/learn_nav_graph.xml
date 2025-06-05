@@ -17,6 +17,10 @@
         android:name="de.palabra.palabra.ui.ResultFragment"
         android:label="ResultFragment">
         <argument
+            android:name="vocabId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
             android:name="word"
             app:argType="string"
             android:defaultValue="" />

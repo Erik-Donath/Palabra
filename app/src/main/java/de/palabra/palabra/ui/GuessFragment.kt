@@ -36,10 +36,11 @@ class GuessFragment : Fragment() {
             button.text = guess.solutions.getOrNull(idx) ?: ""
             button.setOnClickListener {
                 val action = GuessFragmentDirections.actionGuessToResult(
-                    guess.word,
-                    guess.solutions.toTypedArray(),
-                    guess.correctIndex,
-                    idx // picked index
+                    word = guess.word,
+                    solutions =  guess.solutions.toTypedArray(),
+                    correctIndex = guess.correctIndex,
+                    vocabId = guess.vocabId, // Pass id!
+                    pickedIndex = idx // picked index
                 )
                 findNavController().navigate(action)
             }

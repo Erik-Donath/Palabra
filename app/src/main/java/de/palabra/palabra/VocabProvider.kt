@@ -16,6 +16,7 @@ class VocabProvider(
 
     data class GuessData(
         val vocab: Vocab,
+        val vocabId: Int, // CHANGED: Add vocabId here for UI/Result passing
         val word: String,
         val solutions: List<String>,
         val correctIndex: Int
@@ -37,7 +38,8 @@ class VocabProvider(
         val correctIndex = (0..distractors.size).random()
         distractors.add(correctIndex, vocab.toWord)
         index++
-        return GuessData(vocab, vocab.word, distractors, correctIndex)
+        // CHANGED: Pass vocab.id in GuessData
+        return GuessData(vocab, vocab.id, vocab.word, distractors, correctIndex)
     }
 
     fun isEmpty() = vocabs.isEmpty()
@@ -52,17 +54,18 @@ class VocabProvider(
         progress.replaceAll { _, _ -> null }
     }
 
-    suspend fun submitResult(context: Context, vocab: Vocab, isCorrect: Boolean) {
-        progress[vocab.id] = isCorrect
+    suspend fun submitResult(context: Context, vocabId: Int, isCorrect: Boolean) {
+        progress[vocabId] = isCorrect
         val db = PalabraDatabase.getInstance(context)
         if (isCorrect) {
-            db.vocabDao().incrementCorrectCount(vocab.id)
+            db.vocabDao().incrementCorrectCount(vocabId)
         } else {
-            db.vocabDao().incrementWrongCount(vocab.id)
+            db.vocabDao().incrementWrongCount(vocabId)
         }
     }
 
-    fun findVocabByWord(word: String): Vocab? = vocabs.find { it.word == word }
+    // CHANGED: Use only id-based lookup for correctness!
+    fun getVocabById(id: Int): Vocab? = vocabs.find { it.id == id }
 }
 
 suspend fun AllProviderFunction(context: Context): List<Vocab> = withContext(Dispatchers.IO) {
