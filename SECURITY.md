@@ -16,7 +16,7 @@ The table below outlines which versions of Palabra currently receive security up
 If you discover a security vulnerability in Palabra, please report it privately to the maintainers.
 
 - **How to Report:**  
-  Email us at [INSERT SECURITY CONTACT EMAIL HERE] with details of the vulnerability.
+  Email us at c42xe2@gmail.com with details of the vulnerability.
 
 - **What to Expect:**  
   - You will receive an initial response within 5 business days.
