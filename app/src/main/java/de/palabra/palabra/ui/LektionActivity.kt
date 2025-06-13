@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -13,12 +14,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.palabra.palabra.LektionProviderFunction
 import de.palabra.palabra.PalabraApplication
+import de.palabra.palabra.R
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.databinding.ActivityLektionBinding
 import de.palabra.palabra.VocabProvider
 import de.palabra.palabra.util.ExportUtil
 import de.palabra.palabra.util.ImportUtil
+import de.palabra.palabra.util.applyEdgeToEdgeInsets
 import kotlinx.coroutines.launch
 
 class LektionActivity : AppCompatActivity() {
@@ -46,6 +49,7 @@ class LektionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLektionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        applyEdgeToEdgeInsets<View>(R.id.lektion)
 
         if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
             val uri = intent.data!!
