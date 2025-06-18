@@ -54,7 +54,7 @@ class LektionActivity : AppCompatActivity() {
         if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
             val uri = intent.data
             if (uri == null) {
-                Toast.makeText(this, getString(R.string.import_error, "No file URI provided"), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.import_error_no_uri), Toast.LENGTH_LONG).show()
             } else {
                 lifecycleScope.launch {
                     val repo = (application as PalabraApplication).repository

@@ -40,6 +40,7 @@
     <string name="no_vocab_to_learn">Keine Vokabeln zum Lernen vorhanden.</string>
     <string name="unknown_format">Unbekanntes Format (%1$d).</string>
     <string name="import_error">Fehler beim Import: %1$s</string>
+    <string name="import_error_no_uri">Keine Datei-URI übergeben</string>
     <string name="error_title_required">Titel erforderlich</string>
     <string name="error_same_language">Quell- und Zielsprache müssen unterschiedlich sein</string>
 </resources>
