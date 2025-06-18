@@ -32,5 +32,6 @@
     <string name="learn_correct">Richtig!</string>
     <string name="learn_wrong">Falsch!</string>
     <string name="learn_your_choice">Deine Auswahl: %1$s</string>
+    <string name="learn_correct_solution">Korrekte Lösung: %1$s</string>
     <string name="learn_vocab_list">Vokabelliste</string>
 </resources>

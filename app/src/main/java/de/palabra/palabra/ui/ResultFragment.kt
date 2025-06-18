@@ -29,6 +29,7 @@ class ResultFragment : Fragment() {
         binding.resultText.text = if (correct) getString(R.string.learn_correct) else getString(R.string.learn_wrong)
         binding.wordText.text = args.word
         binding.pickedOptionText.text = getString(R.string.learn_your_choice, args.solutions?.get(args.pickedIndex) ?: "")
+        binding.correctOptionText.text = getString(R.string.learn_correct_solution, args.solutions?.get(args.correctIndex) ?: "")
 
         val provider = (requireActivity() as LearnActivity).provider
         lifecycleScope.launch {

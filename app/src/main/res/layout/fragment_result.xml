@@ -71,6 +71,24 @@
         android:autoSizeStepGranularity="1sp"
         />
 
+    <!-- Correct answer -->
+    <TextView
+        android:id="@+id/correctOptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Correct solution"
+        android:textSize="22sp"
+        android:textColor="?attr/colorOnBackground"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="22sp"
+        android:autoSizeStepGranularity="1sp" />
+
     <!-- Navigation buttons -->
     <LinearLayout
         android:layout_width="match_parent"
