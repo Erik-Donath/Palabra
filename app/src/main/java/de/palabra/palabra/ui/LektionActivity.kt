@@ -52,12 +52,16 @@ class LektionActivity : AppCompatActivity() {
         applyEdgeToEdgeInsets<View>(R.id.lektion)
 
         if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
-            val uri = intent.data!!
-            lifecycleScope.launch {
-                val repo = (application as PalabraApplication).repository
-                val success = ImportUtil.importLektionFromUri(this@LektionActivity, uri, repo)
-                if (success) {
-                    Toast.makeText(this@LektionActivity, getString(R.string.import_success), Toast.LENGTH_SHORT).show()
+            val uri = intent.data
+            if (uri == null) {
+                Toast.makeText(this, getString(R.string.import_error, "No file URI provided"), Toast.LENGTH_LONG).show()
+            } else {
+                lifecycleScope.launch {
+                    val repo = (application as PalabraApplication).repository
+                    val success = ImportUtil.importLektionFromUri(this@LektionActivity, uri, repo)
+                    if (success) {
+                        Toast.makeText(this@LektionActivity, getString(R.string.import_success), Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
