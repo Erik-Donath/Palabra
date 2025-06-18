@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/bg_rounded_dialog"
-    android:padding="24dp"
+    android:padding="@dimen/dialog_padding"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,7 +13,7 @@
         android:text="@string/lektion_add_lektion"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/dialog_margin_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?android:textColorPrimary"/>
@@ -30,27 +30,27 @@
         android:id="@+id/spinnerFromLang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="@dimen/dialog_margin_top"/>
 
     <Spinner
         android:id="@+id/spinnerToLang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="@dimen/dialog_margin_top_large"/>
 
     <ImageView
         android:id="@+id/flagToLang"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/dialog_flag_size"
+        android:layout_height="@dimen/dialog_flag_size"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="@dimen/dialog_margin_top"/>
 
     <EditText
         android:id="@+id/editDescription"
         android:hint="Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dialog_margin_top"
         android:textColor="?android:textColorPrimary"
         tools:ignore="HardcodedText" />
 
@@ -59,7 +59,7 @@
         android:gravity="end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="@dimen/dialog_margin_top_large">
 
         <Button
             android:id="@+id/btnCancel"

@@ -39,7 +39,7 @@ class LektionActivity : AppCompatActivity() {
                 val repo = (application as PalabraApplication).repository
                 val success = ImportUtil.importLektionFromUri(this@LektionActivity, importUri, repo)
                 if (success) {
-                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LektionActivity, getString(R.string.import_success), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -57,7 +57,7 @@ class LektionActivity : AppCompatActivity() {
                 val repo = (application as PalabraApplication).repository
                 val success = ImportUtil.importLektionFromUri(this@LektionActivity, uri, repo)
                 if (success) {
-                    Toast.makeText(this@LektionActivity, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LektionActivity, getString(R.string.import_success), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -148,7 +148,7 @@ class LektionActivity : AppCompatActivity() {
             } else {
                 // Handle empty state
                 Log.w("Lektion", "There are no vocab's registered to learn.")
-                Toast.makeText(this@LektionActivity, "Keine Vokabeln zum Lernen vorhanden.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LektionActivity, getString(R.string.no_vocab_to_learn), Toast.LENGTH_SHORT).show()
             }
         }
     }
