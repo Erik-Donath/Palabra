@@ -20,6 +20,13 @@
         android:text="Word"
         tools:ignore="HardcodedText"
         android:textColor="?android:textColorPrimary"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="18sp"
+        android:autoSizeMaxTextSize="70sp"
+        android:autoSizeStepGranularity="2sp"
         />
 
     <!-- Answer options -->
@@ -33,6 +40,14 @@
         android:backgroundTint="?attr/colorPrimary"
         android:textColor="?attr/colorOnPrimary"
         android:textAllCaps="false"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
+        android:gravity="center"
         />
 
     <Button
@@ -45,6 +60,14 @@
         android:backgroundTint="?attr/colorPrimary"
         android:textColor="?attr/colorOnPrimary"
         android:textAllCaps="false"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
+        android:gravity="center"
         />
 
     <Button
@@ -56,5 +79,13 @@
         android:backgroundTint="?attr/colorPrimary"
         android:textColor="?attr/colorOnPrimary"
         android:textAllCaps="false"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
+        android:gravity="center"
         />
 </LinearLayout>
