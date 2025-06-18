@@ -22,6 +22,13 @@
         android:textStyle="bold"
         tools:ignore="HardcodedText"
         android:textColor="?attr/colorOnSurface"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="18sp"
+        android:autoSizeMaxTextSize="70sp"
+        android:autoSizeStepGranularity="2sp"
         />
 
     <!-- Original word -->
@@ -35,6 +42,13 @@
         android:textSize="22sp"
         tools:ignore="HardcodedText"
         android:textColor="?attr/colorOnSurface"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="22sp"
+        android:autoSizeStepGranularity="1sp"
         />
 
     <!-- Selected answer -->
@@ -48,6 +62,13 @@
         android:textSize="22sp"
         tools:ignore="HardcodedText"
         android:textColor="?attr/colorOnBackground"
+        android:singleLine="false"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="22sp"
+        android:autoSizeStepGranularity="1sp"
         />
 
     <!-- Navigation buttons -->
