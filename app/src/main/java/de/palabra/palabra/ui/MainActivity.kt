@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this@MainActivity, "Keine Vokabeln um zu lernen", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, getString(R.string.no_vocab_to_learn), Toast.LENGTH_LONG).show()
                     Log.w("Main", "There are no vocab's registered to learn.")
                 }
             }
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra(LearnActivity.EXTRA_PROVIDER, provider)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this@MainActivity, "Keine Vokabeln um zu lernen", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, getString(R.string.no_vocab_to_learn), Toast.LENGTH_LONG).show()
                     Log.w("Main", "There are no vocab's registered to learn.")
                 }
             }

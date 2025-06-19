@@ -56,7 +56,11 @@ class AddLektionDialogFragment(
             val toLang = langCodes[spinnerToLang.selectedItemPosition]
             val desc = editDescription.text.toString().trim()
             if (title.isBlank()) {
-                editTitle.error = "Title required"
+                editTitle.error = getString(R.string.error_title_required)
+                return@setOnClickListener
+            }
+            if (fromLang == toLang) {
+                Toast.makeText(requireContext(), getString(R.string.error_same_language), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             onAddLektion(title, fromLang, toLang, desc)

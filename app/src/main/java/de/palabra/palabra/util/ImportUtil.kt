@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.widget.Toast
 import com.google.gson.Gson
+import de.palabra.palabra.R
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.db.Repository
@@ -35,14 +36,14 @@ object ImportUtil {
                 // Add additional cases for future format versions
                 else -> {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(context, "Unbekanntes Format ($formatVersion).", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, context.getString(R.string.unknown_format, formatVersion), Toast.LENGTH_LONG).show()
                     }
                     false
                 }
             }
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(context, "Fehler beim Import: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context.getString(R.string.import_error, e.localizedMessage ?: "Unknown error"), Toast.LENGTH_LONG).show()
             }
             false
         }
@@ -78,7 +79,7 @@ object ImportUtil {
         }
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Lektion importiert!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.import_success), Toast.LENGTH_SHORT).show()
         }
         return true
     }

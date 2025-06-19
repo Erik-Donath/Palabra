@@ -54,4 +54,13 @@
     <string name="learn_your_choice">Your Choise: %1$s</string>
     <string name="learn_correct_solution">Correct solution: %1$s</string>
     <string name="learn_vocab_list">Vocab list</string>
+
+    <!-- Toasts and Error Messages -->
+    <string name="import_success">Lesson imported!</string>
+    <string name="no_vocab_to_learn">No vocabulary available to learn.</string>
+    <string name="unknown_format">Unknown format (%1$d).</string>
+    <string name="import_error">Import failed: %1$s</string>
+    <string name="import_error_no_uri">No file URI provided</string>
+    <string name="error_title_required">Title required</string>
+    <string name="error_same_language">Source and target language must be different</string>
 </resources>

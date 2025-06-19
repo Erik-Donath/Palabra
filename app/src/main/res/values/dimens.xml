@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="dialog_margin_bottom">16dp</dimen>
+    <dimen name="dialog_margin_top">8dp</dimen>
+    <dimen name="dialog_margin_top_large">12dp</dimen>
+    <dimen name="dialog_flag_size">48dp</dimen>
 </resources>
