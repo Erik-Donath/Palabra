@@ -2,7 +2,7 @@
 
 **Palabra** is an open-source vocabulary learning app built with Kotlin for Android devices. Designed for learners at all levels, Palabra offers an efficient, intuitive, and mobile-first approach to expanding your language skills. With its customizable vocabulary lists, smart review algorithms, and clear progress tracking, Palabra helps you master new words and phrases with ease.
 
-[➡️ Download the latest release 1.0](https://github.com/Erik-Donath/Palabra/releases/tag/1.0)
+[➡️ Download the latest release 1.1](https://github.com/Erik-Donath/Palabra/releases/tag/1.1)
 
 ---
 
@@ -13,7 +13,7 @@ Palabra enables you to:
 - Review words using spaced repetition
 - Track your learning progress over time
 
-This project is in active development and currently in early alpha. Your feedback is welcome!
+This project is in active development. Your feedback is welcome!
 
 ---
 
@@ -25,6 +25,16 @@ This project is in active development and currently in early alpha. Your feedbac
 - **UI:** Built with Jetpack Compose for a responsive, modern user interface.
 - **Review Logic:** Implements a basic spaced repetition system to optimize vocabulary reviews and retention.
 - **Other Libraries:** Utilizes Android Jetpack libraries for navigation, lifecycle management, and dependency injection (if applicable).
+
+---
+
+## 🆕 What's New in 1.1
+
+- Fixed minor bugs in the lesson and vocabulary management
+- Improved app performance and responsiveness
+- Updated English and German translations
+- UI polish: better button alignment and improved dark mode contrast
+- Codebase cleanup and internal refactoring for future features
 
 ---
 
@@ -47,7 +57,7 @@ To run Palabra locally:
    - Click the **Run** button in Android Studio.
 
 4. **Or Download APK**
-   - Get the latest APK from the [1.0 Release page](https://github.com/Erik-Donath/Palabra/releases/tag/1.0).
+   - Get the latest APK from the [1.1 Release page](https://github.com/Erik-Donath/Palabra/releases/tag/1.1).
    - Install it on your device (you may need to allow installation from unknown sources).
 
 ---
