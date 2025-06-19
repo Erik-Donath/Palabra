@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.widget.Toast
 import com.google.gson.Gson
+import de.palabra.palabra.R
 import de.palabra.palabra.db.Lektion
 import de.palabra.palabra.db.Vocab
 import de.palabra.palabra.db.Repository
